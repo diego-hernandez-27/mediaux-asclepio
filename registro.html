@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+    <div class="registro">
+        <form class="formulario">
+            <h2>Registro</h2>
+            
+            <!-- Información Personal -->
+            <div class="seccion">
+                <h3>Información Personal</h3>
+                <input type="text" id="input-usuario" placeholder="Usuario" autocomplete="off">
+                <input type="text" id="input-nombre" placeholder="Nombre" autocomplete="off">
+                <input type="text" id="input-apellido-paterno" placeholder="Apellido Paterno" autocomplete="off">
+                <input type="text" id="input-apellido-materno" placeholder="Apellido Materno" autocomplete="off">
+                <input type="email" id="input-correo" placeholder="Correo Electrónico" autocomplete="off">
+                <input type="tel" id="input-telefono" placeholder="Teléfono" autocomplete="off">
+                <input type="date" id="input-fecha-nacimiento" placeholder="Fecha de Nacimiento">
+                <input type="password" id="input-contrasena" placeholder="Contraseña">
+            </div>
+
+            <!-- Dirección -->
+            <div class="seccion">
+                <h3>Dirección</h3>
+                <div class="row">
+                    <input type="text" id="input-calle" placeholder="Calle" class="col-8">
+                    <input type="text" id="input-numero" placeholder="Número" class="col-4">
+                </div>
+                <div class="row">
+                    <input type="text" id="input-colonia" placeholder="Colonia" class="col-6">
+                    <input type="text" id="input-ciudad" placeholder="Ciudad" class="col-6">
+                </div>
+                <div class="row">
+                    <input type="text" id="input-estado" placeholder="Estado" class="col-6">
+                    <input type="text" id="input-codigo-postal" placeholder="Código Postal" class="col-6">
+                </div>
+            </div>
+
+            <button type="submit">Registrarse</button>
+            <div class="enlace-login">
+                ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a>
+            </div>
+        </form>
+    </div>
+    <script src="js/registro.js"></script>
+</body>
+</html> 
