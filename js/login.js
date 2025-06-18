@@ -12,7 +12,7 @@ body.addEventListener('mousemove', (m)=> {
             monster.src = "img/idle/2.png";
         } else if(m.clientX < anchoMitad && m.clientY > altoMitad){
             monster.src = "img/idle/5.png";
-        } else if(m.clientX > altoMitad && m.clientY <altoMitad){
+        } else if(m.clientX > anchoMitad && m.clientY < altoMitad){
             monster.src = "img/idle/3.png";
         } else {
             monster.src = "img/idle/4.png";
