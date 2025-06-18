@@ -60,9 +60,8 @@ menuIcons.forEach(icon => {
 // Funcionalidad para el perfil de usuario
 username.addEventListener('click', () => {
     console.log('Perfil de usuario clickeado');
-    // Aquí puedes agregar la navegación al perfil
-    alert('Ir al perfil de usuario');
-    // window.location.href = 'perfil.html';
+    // Navegar al perfil
+    window.location.href = 'perfil.html';
 });
 
 // Cargar nombre de usuario desde localStorage (si existe)
