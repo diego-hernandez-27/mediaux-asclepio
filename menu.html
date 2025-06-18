@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asclepio - Menú Principal</title>
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/emergencia.css">
 </head>
 <body>
     <div class="header">
@@ -24,29 +25,248 @@
     </div>
 
     <div class="menu-icons">
-        <div class="icon">
-            <img src="https://img.icons8.com/ios/24/pen.png" alt="Notas"/>
-            <p>Notas</p>
+        <div class="icon" onclick="showEmergencySection()">
+            <img src="https://img.icons8.com/ios/24/emergency.png" alt="Emergencia"/>
+            <p>Emergencia</p>
         </div>
-        <div class="icon">
+        <div class="icon" onclick="showHistorialSection()">
             <img src="https://img.icons8.com/ios/24/clock.png" alt="Historial"/>
             <p>Historial</p>
         </div>
-        <div class="icon">
+        <div class="icon" onclick="showMapSection()">
             <img src="https://img.icons8.com/ios/24/map.png" alt="Mapa"/>
             <p>Mapa</p>
         </div>
-        <div class="icon">
-            <img src="https://img.icons8.com/ios/24/cloud.png" alt="Nube"/>
-            <p>Nube</p>
-        </div>
-        <div class="icon">
+        <div class="icon" onclick="showFavoritosSection()">
             <img src="https://img.icons8.com/ios/24/star.png" alt="Favoritos"/>
             <p>Favoritos</p>
         </div>
     </div>
 
-    <div class="map-section">
+    <!-- Sección de Emergencias (visible por defecto) -->
+    <div id="emergency-section" class="emergency-section">
+        <div class="emergency-container">
+            <div class="page-title">
+                <h2>🚨 Emergencias Médicas</h2>
+                <p>Información rápida para situaciones de emergencia</p>
+            </div>
+
+            <div class="emergency-grid">
+                <!-- Tarjeta 1: RCP -->
+                <div class="emergency-card">
+                    <div class="card-image">
+                        <img src="https://img.icons8.com/color/96/heart-with-pulse.png" alt="RCP">
+                        <div class="emergency-badge">CRÍTICO</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Reanimación Cardiopulmonar (RCP)</h3>
+                        <p class="description">Técnica de emergencia para salvar vidas cuando alguien ha dejado de respirar o su corazón ha dejado de latir.</p>
+                        <div class="card-stats">
+                            <span class="stat">⏱️ 2-3 min</span>
+                            <span class="stat">📱 Fácil</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="action-buttons">
+                            <button class="action-btn download-btn" onclick="downloadEmergency('rcp')">
+                                <span>⬇️</span>
+                                Descargar
+                            </button>
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite('rcp')">
+                                <span id="favorite-rcp">🤍</span>
+                                Favorito
+                            </button>
+                        </div>
+                        <div class="more-options">
+                            <button class="more-btn" onclick="showMoreOptions('rcp')">⋯</button>
+                            <div class="dropdown-menu" id="dropdown-rcp">
+                                <div class="dropdown-item" onclick="shareEmergency('rcp')">📤 Compartir</div>
+                                <div class="dropdown-item" onclick="reportEmergency('rcp')">🚨 Reportar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Hemorragia -->
+                <div class="emergency-card">
+                    <div class="card-image">
+                        <img src="https://img.icons8.com/color/96/blood-drop.png" alt="Hemorragia">
+                        <div class="emergency-badge">URGENTE</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Control de Hemorragias</h3>
+                        <p class="description">Cómo detener el sangrado excesivo aplicando presión directa y elevando la herida.</p>
+                        <div class="card-stats">
+                            <span class="stat">⏱️ 1-2 min</span>
+                            <span class="stat">📱 Fácil</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="action-buttons">
+                            <button class="action-btn download-btn" onclick="downloadEmergency('hemorragia')">
+                                <span>⬇️</span>
+                                Descargar
+                            </button>
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite('hemorragia')">
+                                <span id="favorite-hemorragia">🤍</span>
+                                Favorito
+                            </button>
+                        </div>
+                        <div class="more-options">
+                            <button class="more-btn" onclick="showMoreOptions('hemorragia')">⋯</button>
+                            <div class="dropdown-menu" id="dropdown-hemorragia">
+                                <div class="dropdown-item" onclick="shareEmergency('hemorragia')">📤 Compartir</div>
+                                <div class="dropdown-item" onclick="reportEmergency('hemorragia')">🚨 Reportar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Quemaduras -->
+                <div class="emergency-card">
+                    <div class="card-image">
+                        <img src="https://img.icons8.com/color/96/fire.png" alt="Quemaduras">
+                        <div class="emergency-badge">URGENTE</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Primeros Auxilios en Quemaduras</h3>
+                        <p class="description">Tratamiento inmediato para quemaduras de primer, segundo y tercer grado.</p>
+                        <div class="card-stats">
+                            <span class="stat">⏱️ 3-5 min</span>
+                            <span class="stat">📱 Medio</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="action-buttons">
+                            <button class="action-btn download-btn" onclick="downloadEmergency('quemaduras')">
+                                <span>⬇️</span>
+                                Descargar
+                            </button>
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite('quemaduras')">
+                                <span id="favorite-quemaduras">🤍</span>
+                                Favorito
+                            </button>
+                        </div>
+                        <div class="more-options">
+                            <button class="more-btn" onclick="showMoreOptions('quemaduras')">⋯</button>
+                            <div class="dropdown-menu" id="dropdown-quemaduras">
+                                <div class="dropdown-item" onclick="shareEmergency('quemaduras')">📤 Compartir</div>
+                                <div class="dropdown-item" onclick="reportEmergency('quemaduras')">🚨 Reportar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Ahogamiento -->
+                <div class="emergency-card">
+                    <div class="card-image">
+                        <img src="https://img.icons8.com/color/96/water.png" alt="Ahogamiento">
+                        <div class="emergency-badge">CRÍTICO</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Rescate por Ahogamiento</h3>
+                        <p class="description">Técnicas de rescate acuático y primeros auxilios para víctimas de ahogamiento.</p>
+                        <div class="card-stats">
+                            <span class="stat">⏱️ 1-2 min</span>
+                            <span class="stat">📱 Difícil</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="action-buttons">
+                            <button class="action-btn download-btn" onclick="downloadEmergency('ahogamiento')">
+                                <span>⬇️</span>
+                                Descargar
+                            </button>
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite('ahogamiento')">
+                                <span id="favorite-ahogamiento">🤍</span>
+                                Favorito
+                            </button>
+                        </div>
+                        <div class="more-options">
+                            <button class="more-btn" onclick="showMoreOptions('ahogamiento')">⋯</button>
+                            <div class="dropdown-menu" id="dropdown-ahogamiento">
+                                <div class="dropdown-item" onclick="shareEmergency('ahogamiento')">📤 Compartir</div>
+                                <div class="dropdown-item" onclick="reportEmergency('ahogamiento')">🚨 Reportar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: Fracturas -->
+                <div class="emergency-card">
+                    <div class="card-image">
+                        <img src="https://img.icons8.com/color/96/broken-bone.png" alt="Fracturas">
+                        <div class="emergency-badge">URGENTE</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Inmovilización de Fracturas</h3>
+                        <p class="description">Cómo inmovilizar fracturas y esguinces antes de llegar al hospital.</p>
+                        <div class="card-stats">
+                            <span class="stat">⏱️ 5-10 min</span>
+                            <span class="stat">📱 Medio</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="action-buttons">
+                            <button class="action-btn download-btn" onclick="downloadEmergency('fracturas')">
+                                <span>⬇️</span>
+                                Descargar
+                            </button>
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite('fracturas')">
+                                <span id="favorite-fracturas">🤍</span>
+                                Favorito
+                            </button>
+                        </div>
+                        <div class="more-options">
+                            <button class="more-btn" onclick="showMoreOptions('fracturas')">⋯</button>
+                            <div class="dropdown-menu" id="dropdown-fracturas">
+                                <div class="dropdown-item" onclick="shareEmergency('fracturas')">📤 Compartir</div>
+                                <div class="dropdown-item" onclick="reportEmergency('fracturas')">🚨 Reportar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6: Ataque Cardíaco -->
+                <div class="emergency-card">
+                    <div class="card-image">
+                        <img src="https://img.icons8.com/color/96/heart-attack.png" alt="Ataque Cardíaco">
+                        <div class="emergency-badge">CRÍTICO</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Síntomas de Ataque Cardíaco</h3>
+                        <p class="description">Identificación de síntomas y primeros auxilios para ataques cardíacos.</p>
+                        <div class="card-stats">
+                            <span class="stat">⏱️ 1 min</span>
+                            <span class="stat">📱 Fácil</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="action-buttons">
+                            <button class="action-btn download-btn" onclick="downloadEmergency('ataque-cardiaco')">
+                                <span>⬇️</span>
+                                Descargar
+                            </button>
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite('ataque-cardiaco')">
+                                <span id="favorite-ataque-cardiaco">🤍</span>
+                                Favorito
+                            </button>
+                        </div>
+                        <div class="more-options">
+                            <button class="more-btn" onclick="showMoreOptions('ataque-cardiaco')">⋯</button>
+                            <div class="dropdown-menu" id="dropdown-ataque-cardiaco">
+                                <div class="dropdown-item" onclick="shareEmergency('ataque-cardiaco')">📤 Compartir</div>
+                                <div class="dropdown-item" onclick="reportEmergency('ataque-cardiaco')">🚨 Reportar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección del mapa (inicialmente oculta) -->
+    <div id="map-section" class="map-section" style="display: none;">
         <img src="img/mapa.png" alt="Mapa de hospitales">
         <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7522.48882518072!2d-99.13258056190091!3d19.48811765043592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdff8c00000000%3A0x1b5b45a44293f318!2sHospital%20Angeles%20Lindavista!5e0!3m2!1ses-419!2smx!4v1749667652056!5m2!1ses-419!2smx" 
@@ -59,10 +279,37 @@
         </iframe>
     </div>
 
+    <!-- Sección de Historial (inicialmente oculta) -->
+    <div id="historial-section" class="historial-section" style="display: none;">
+        <div class="historial-container">
+            <div class="page-title">
+                <h2>📋 Historial de Consultas</h2>
+                <p>Registro de tus consultas médicas anteriores</p>
+            </div>
+            <div class="historial-content">
+                <p>No hay consultas registradas aún.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Favoritos (inicialmente oculta) -->
+    <div id="favoritos-section" class="favoritos-section" style="display: none;">
+        <div class="favoritos-container">
+            <div class="page-title">
+                <h2>⭐ Favoritos</h2>
+                <p>Contenido guardado en tus favoritos</p>
+            </div>
+            <div class="favoritos-content">
+                <p>No tienes favoritos guardados aún.</p>
+            </div>
+        </div>
+    </div>
+
     <div class="corner-logo">
         <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Asclepio Logo">
     </div>
 
     <script src="js/menu.js"></script>
+    <script src="js/emergencia.js"></script>
 </body>
 </html> 

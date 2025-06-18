@@ -33,9 +33,9 @@ menuIcons.forEach(icon => {
         
         // Aquí puedes agregar la navegación a diferentes secciones
         switch(iconName) {
-            case 'Notas':
-                alert('Ir a Notas');
-                // window.location.href = 'notas.html';
+            case 'Emergencia':
+                alert('Ir a Emergencia');
+                // window.location.href = 'emergencia.html';
                 break;
             case 'Historial':
                 alert('Ir a Historial');
@@ -44,10 +44,6 @@ menuIcons.forEach(icon => {
             case 'Mapa':
                 alert('Ir a Mapa');
                 // window.location.href = 'mapa.html';
-                break;
-            case 'Nube':
-                alert('Ir a Nube');
-                // window.location.href = 'nube.html';
                 break;
             case 'Favoritos':
                 alert('Ir a Favoritos');
@@ -139,4 +135,124 @@ style.textContent = `
         to { transform: translateX(100%); opacity: 0; }
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// Cargar datos del usuario al iniciar
+document.addEventListener('DOMContentLoaded', function() {
+    loadUserData();
+    // Mostrar emergencias por defecto
+    showEmergencySection();
+});
+
+// Función para cargar datos del usuario
+function loadUserData() {
+    const userData = JSON.parse(localStorage.getItem('userData')) || {};
+    const usernameElement = document.querySelector('.username');
+    
+    if (usernameElement && userData.nombre) {
+        usernameElement.textContent = userData.nombre;
+    }
+}
+
+// Función para mostrar la sección de emergencias
+function showEmergencySection() {
+    hideAllSections();
+    const emergencySection = document.getElementById('emergency-section');
+    if (emergencySection) {
+        emergencySection.style.display = 'block';
+    }
+}
+
+// Función para mostrar la sección del mapa
+function showMapSection() {
+    hideAllSections();
+    const mapSection = document.getElementById('map-section');
+    if (mapSection) {
+        mapSection.style.display = 'flex';
+    }
+}
+
+// Función para mostrar la sección de historial
+function showHistorialSection() {
+    hideAllSections();
+    const historialSection = document.getElementById('historial-section');
+    if (historialSection) {
+        historialSection.style.display = 'block';
+    }
+}
+
+// Función para mostrar la sección de favoritos
+function showFavoritosSection() {
+    hideAllSections();
+    const favoritosSection = document.getElementById('favoritos-section');
+    if (favoritosSection) {
+        favoritosSection.style.display = 'block';
+    }
+}
+
+// Función para ocultar todas las secciones
+function hideAllSections() {
+    const sections = [
+        'emergency-section',
+        'map-section', 
+        'historial-section',
+        'favoritos-section'
+    ];
+    
+    sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.style.display = 'none';
+        }
+    });
+}
+
+// Función para manejar la búsqueda
+function handleSearch() {
+    const searchInput = document.querySelector('.search-bar input');
+    const searchTerm = searchInput.value.trim();
+    
+    if (searchTerm) {
+        // Simular búsqueda sin mostrar alert
+        console.log('Buscando:', searchTerm);
+        searchInput.value = '';
+    }
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Event listener para la búsqueda
+    const searchBtn = document.querySelector('.search-btn');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', handleSearch);
+    }
+    
+    // Event listener para el input de búsqueda (Enter key)
+    const searchInput = document.querySelector('.search-bar input');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSearch();
+            }
+        });
+    }
+    
+    // Event listener para el nombre de usuario (navegación al perfil)
+    const usernameElement = document.querySelector('.username');
+    if (usernameElement) {
+        usernameElement.addEventListener('click', function() {
+            window.location.href = 'perfil.html';
+        });
+    }
+    
+    // Event listener para doble clic en el logo (logout)
+    const logoTitle = document.querySelector('.logo-title');
+    if (logoTitle) {
+        logoTitle.addEventListener('dblclick', function() {
+            if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+                localStorage.clear();
+                window.location.href = 'login.html';
+            }
+        });
+    }
+}); 

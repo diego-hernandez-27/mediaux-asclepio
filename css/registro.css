@@ -5,7 +5,7 @@
     font-family: 'Blowlby One SC', cursive;
 }
 
-body {
+body.registro-page {
     min-height: 100vh;
     background: #fff;
     display: flex;
@@ -143,9 +143,9 @@ body {
     background: #2c6f83;
 }
 
-/* Responsive */
+/* Responsive para registro */
 @media (max-width: 600px) {
-    body {
+    body.registro-page {
         padding: 10px;
     }
     

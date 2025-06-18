@@ -2,12 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Estilos para el menú principal */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f7f9fa;
     min-height: 100vh;
+    padding: 0;
+    display: block; /* Cambiar de flex a block para el menú */
 }
 
 .header {
@@ -192,6 +196,69 @@ body {
     opacity: 1;
 }
 
+/* Estilos para la sección de emergencias integrada */
+.emergency-section {
+    width: 100%;
+    background: #f7f9fa;
+    padding: 20px 0;
+}
+
+/* Estilos para la sección de historial */
+.historial-section {
+    width: 100%;
+    background: #f7f9fa;
+    padding: 20px 0;
+}
+
+.historial-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.historial-content {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+
+.historial-content p {
+    color: #666;
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Estilos para la sección de favoritos */
+.favoritos-section {
+    width: 100%;
+    background: #f7f9fa;
+    padding: 20px 0;
+}
+
+.favoritos-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.favoritos-content {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+
+.favoritos-content p {
+    color: #666;
+    font-size: 18px;
+    margin: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .header {
@@ -259,6 +326,23 @@ body {
     .corner-logo img {
         height: 30px;
     }
+    
+    .historial-container,
+    .favoritos-container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    
+    .historial-content,
+    .favoritos-content {
+        padding: 30px 20px;
+        margin-top: 20px;
+    }
+    
+    .historial-content p,
+    .favoritos-content p {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -282,5 +366,15 @@ body {
     
     .map-section iframe {
         height: 250px;
+    }
+    
+    .historial-content,
+    .favoritos-content {
+        padding: 20px 15px;
+    }
+    
+    .historial-content p,
+    .favoritos-content p {
+        font-size: 14px;
     }
 } 
