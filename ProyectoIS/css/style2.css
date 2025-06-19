@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #336e8f;
+  }
+
+  /* El main */
+
+    main {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  main h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+
+    /* NAVBAR SUPERIOR */
+
+    .navbar a {
+    text-decoration: none;
+    }
+
+
+    .navbar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .navbar .icon .pls {
+  font-size: 18px;  /* antes era 12px */
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+/* Barra de Titulo */
+
+    .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #d1e3ec;
+    border-bottom: 2px solid #aac;
+  }
+  
+  .logo-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .logo-title h1 {
+    color: #4c88a2;
+    font-weight: bold;
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .username {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #5b9cc9;
+    text-decoration: underline dotted red;
+  }
+  
+  .profile-pic {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #5b9cc9;
+  }
+
+  /* Esto para que se ilumine la barra de navegación */
+
+  .navbar .icon p {
+  font-size: 12px;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.navbar .icon:hover p {
+  color: #007BFF;
+}
+
+
+/* Esto es lo que tiene que ver con el formulario  */
+    
+    .form-section {
+      margin-top: 20px;
+      background: #f1f1f1;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .form-section h3 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* Footer de la pagina */
+
+    .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: #f9fbfd;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  color: #333;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #222;
+  margin-left: 20px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.footer a img {
+  margin-right: 6px;
+}
+
+.footer a:hover {
+  color: #007bff;
+}
+
+/* CONTENEDOR DE TARJETAS */
+.recomendaciones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.tarjeta {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 300px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: scale(1.05);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #ccc;
+}
+
+.tarjeta p {
+  padding: 10px;
+  font-weight: bold;
+}
+
+
+.search-bar {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar input {
+    width: 60%;
+    padding: 10px;
+    border-radius: 20px 0 0 20px;
+    border: 2px solid #aac;
+    outline: none;
+  }
+  
+  .search-btn {
+    background-color: #5b9cc9;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+  }
