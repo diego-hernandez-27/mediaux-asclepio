@@ -20,25 +20,25 @@
     </div>
 
     <div class="search-bar">
-        <input type="text" placeholder="Buscar hospitales, doctores, especialidades...">
+        <input type="text" placeholder="">
         <button class="search-btn">🔍</button>
     </div>
 
     <div class="menu-icons">
         <div class="icon" onclick="showEmergencySection()">
-            <img src="https://img.icons8.com/ios/24/emergency.png" alt="Emergencia"/>
+            <img src="img/icons/emergency.png" alt="Emergencia"/>
             <p>Emergencia</p>
         </div>
         <div class="icon" onclick="showHistorialSection()">
-            <img src="https://img.icons8.com/ios/24/clock.png" alt="Historial"/>
+            <img src="img/icons/clock.png" alt="Historial"/>
             <p>Historial</p>
         </div>
         <div class="icon" onclick="showMapSection()">
-            <img src="https://img.icons8.com/ios/24/map.png" alt="Mapa"/>
+            <img src="img/icons/mapa.png" alt="Mapa"/>
             <p>Mapa</p>
         </div>
         <div class="icon" onclick="showFavoritosSection()">
-            <img src="https://img.icons8.com/ios/24/star.png" alt="Favoritos"/>
+            <img src="img/icons/favoritos.png" alt="Favoritos"/>
             <p>Favoritos</p>
         </div>
     </div>
@@ -53,7 +53,7 @@
 
             <div class="emergency-grid">
                 <!-- Tarjeta 1: RCP -->
-                <div class="emergency-card">
+                <div class="emergency-card" onclick="openEmergencyDetail('rcp')" style="cursor: pointer;">
                     <div class="card-image">
                         <img src="https://img.icons8.com/color/96/heart-with-pulse.png" alt="RCP">
                         <div class="emergency-badge">CRÍTICO</div>
@@ -66,7 +66,7 @@
                             <span class="stat">📱 Fácil</span>
                         </div>
                     </div>
-                    <div class="card-actions">
+                    <div class="card-actions" onclick="event.stopPropagation();">
                         <div class="action-buttons">
                             <button class="action-btn download-btn" onclick="downloadEmergency('rcp')">
                                 <span>⬇️</span>
@@ -88,7 +88,7 @@
                 </div>
 
                 <!-- Tarjeta 2: Hemorragia -->
-                <div class="emergency-card">
+                <div class="emergency-card" onclick="openEmergencyDetail('hemorragia')" style="cursor: pointer;">
                     <div class="card-image">
                         <img src="https://img.icons8.com/color/96/blood-drop.png" alt="Hemorragia">
                         <div class="emergency-badge">URGENTE</div>
@@ -101,7 +101,7 @@
                             <span class="stat">📱 Fácil</span>
                         </div>
                     </div>
-                    <div class="card-actions">
+                    <div class="card-actions" onclick="event.stopPropagation();">
                         <div class="action-buttons">
                             <button class="action-btn download-btn" onclick="downloadEmergency('hemorragia')">
                                 <span>⬇️</span>
@@ -123,7 +123,7 @@
                 </div>
 
                 <!-- Tarjeta 3: Quemaduras -->
-                <div class="emergency-card">
+                <div class="emergency-card" onclick="openEmergencyDetail('quemaduras')" style="cursor: pointer;">
                     <div class="card-image">
                         <img src="https://img.icons8.com/color/96/fire.png" alt="Quemaduras">
                         <div class="emergency-badge">URGENTE</div>
@@ -136,7 +136,7 @@
                             <span class="stat">📱 Medio</span>
                         </div>
                     </div>
-                    <div class="card-actions">
+                    <div class="card-actions" onclick="event.stopPropagation();">
                         <div class="action-buttons">
                             <button class="action-btn download-btn" onclick="downloadEmergency('quemaduras')">
                                 <span>⬇️</span>
@@ -158,7 +158,7 @@
                 </div>
 
                 <!-- Tarjeta 4: Ahogamiento -->
-                <div class="emergency-card">
+                <div class="emergency-card" onclick="openEmergencyDetail('ahogamiento')" style="cursor: pointer;">
                     <div class="card-image">
                         <img src="https://img.icons8.com/color/96/water.png" alt="Ahogamiento">
                         <div class="emergency-badge">CRÍTICO</div>
@@ -171,7 +171,7 @@
                             <span class="stat">📱 Difícil</span>
                         </div>
                     </div>
-                    <div class="card-actions">
+                    <div class="card-actions" onclick="event.stopPropagation();">
                         <div class="action-buttons">
                             <button class="action-btn download-btn" onclick="downloadEmergency('ahogamiento')">
                                 <span>⬇️</span>
@@ -193,7 +193,7 @@
                 </div>
 
                 <!-- Tarjeta 5: Fracturas -->
-                <div class="emergency-card">
+                <div class="emergency-card" onclick="openEmergencyDetail('fracturas')" style="cursor: pointer;">
                     <div class="card-image">
                         <img src="https://img.icons8.com/color/96/broken-bone.png" alt="Fracturas">
                         <div class="emergency-badge">URGENTE</div>
@@ -206,7 +206,7 @@
                             <span class="stat">📱 Medio</span>
                         </div>
                     </div>
-                    <div class="card-actions">
+                    <div class="card-actions" onclick="event.stopPropagation();">
                         <div class="action-buttons">
                             <button class="action-btn download-btn" onclick="downloadEmergency('fracturas')">
                                 <span>⬇️</span>
@@ -228,7 +228,7 @@
                 </div>
 
                 <!-- Tarjeta 6: Ataque Cardíaco -->
-                <div class="emergency-card">
+                <div class="emergency-card" onclick="openEmergencyDetail('ataque-cardiaco')" style="cursor: pointer;">
                     <div class="card-image">
                         <img src="https://img.icons8.com/color/96/heart-attack.png" alt="Ataque Cardíaco">
                         <div class="emergency-badge">CRÍTICO</div>
@@ -241,7 +241,7 @@
                             <span class="stat">📱 Fácil</span>
                         </div>
                     </div>
-                    <div class="card-actions">
+                    <div class="card-actions" onclick="event.stopPropagation();">
                         <div class="action-buttons">
                             <button class="action-btn download-btn" onclick="downloadEmergency('ataque-cardiaco')">
                                 <span>⬇️</span>
@@ -283,12 +283,52 @@
     <div id="historial-section" class="historial-section" style="display: none;">
         <div class="historial-container">
             <div class="page-title">
-                <h2>📋 Historial de Consultas</h2>
-                <p>Registro de tus consultas médicas anteriores</p>
+                <h2>📋 Registro de Incidente Médico</h2>
+                <p>Formulario para registrar detalles de incidentes médicos</p>
             </div>
-            <div class="historial-content">
-                <p>No hay consultas registradas aún.</p>
-            </div>
+            
+            <form class="incident-form" action="procesar_incidente.php" method="post">
+                <div class="form-section">
+                    <h3>Detalles del Incidente Médico</h3>
+                    
+                    <div class="form-group">
+                        <label for="paciente">Nombre del paciente:</label>
+                        <input type="text" id="paciente" name="paciente" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edad">Edad:</label>
+                        <input type="number" id="edad" name="edad" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sintomas">Síntomas presentados:</label>
+                        <textarea id="sintomas" name="sintomas" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="diagnostico">Diagnóstico preliminar:</label>
+                        <textarea id="diagnostico" name="diagnostico" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tratamiento">Tratamiento aplicado:</label>
+                        <textarea id="tratamiento" name="tratamiento" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="estado">Estado del paciente:</label>
+                        <select id="estado" name="estado" required>
+                            <option value="">-- Selecciona --</option>
+                            <option value="estable">Estable</option>
+                            <option value="crítico">Crítico</option>
+                            <option value="trasladado">Trasladado</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Incidente</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -299,14 +339,112 @@
                 <h2>⭐ Favoritos</h2>
                 <p>Contenido guardado en tus favoritos</p>
             </div>
-            <div class="favoritos-content">
-                <p>No tienes favoritos guardados aún.</p>
+            
+            <div class="emergency-grid">
+                <!-- Tarjeta 1: RCP (Favorito) -->
+                <div class="emergency-card" onclick="openEmergencyDetail('rcp')" style="cursor: pointer;">
+                    <div class="card-image">
+                        <img src="https://img.icons8.com/color/96/heart-with-pulse.png" alt="RCP">
+                        <div class="emergency-badge">CRÍTICO</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Reanimación Cardiopulmonar (RCP)</h3>
+                        <p class="description">Técnica de emergencia para salvar vidas cuando alguien ha dejado de respirar o su corazón ha dejado de latir.</p>
+                        <div class="card-stats">
+                            <span class="stat">⏱️ 2-3 min</span>
+                            <span class="stat">📱 Fácil</span>
+                        </div>
+                    </div>
+                    <div class="card-actions" onclick="event.stopPropagation();">
+                        <div class="action-buttons">
+                            <button class="action-btn download-btn" onclick="downloadEmergency('rcp')">
+                                <span>⬇️</span>
+                                Descargar
+                            </button>
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite('rcp')">
+                                <span id="favorite-rcp">❤️</span>
+                                Favorito
+                            </button>
+                        </div>
+                        <div class="more-options">
+                            <button class="more-btn" onclick="showMoreOptions('rcp-fav')">⋯</button>
+                            <div class="dropdown-menu" id="dropdown-rcp-fav">
+                                <div class="dropdown-item" onclick="removeFromFavorites('rcp')">🗑️ Quitar de favoritos</div>
+                                <div class="dropdown-item" onclick="downloadEmergency('rcp')">⬇️ Descargar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Hemorragia (Favorito) -->
+                <div class="emergency-card" onclick="openEmergencyDetail('hemorragia')" style="cursor: pointer;">
+                    <div class="card-image">
+                        <img src="https://img.icons8.com/color/96/blood-drop.png" alt="Hemorragia">
+                        <div class="emergency-badge">URGENTE</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Control de Hemorragias</h3>
+                        <p class="description">Cómo detener el sangrado excesivo aplicando presión directa y elevando la herida.</p>
+                        <div class="card-stats">
+                            <span class="stat">⏱️ 1-2 min</span>
+                            <span class="stat">📱 Fácil</span>
+                        </div>
+                    </div>
+                    <div class="card-actions" onclick="event.stopPropagation();">
+                        <div class="action-buttons">
+                            <button class="action-btn download-btn" onclick="downloadEmergency('hemorragia')">
+                                <span>⬇️</span>
+                                Descargar
+                            </button>
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite('hemorragia')">
+                                <span id="favorite-hemorragia">❤️</span>
+                                Favorito
+                            </button>
+                        </div>
+                        <div class="more-options">
+                            <button class="more-btn" onclick="showMoreOptions('hemorragia-fav')">⋯</button>
+                            <div class="dropdown-menu" id="dropdown-hemorragia-fav">
+                                <div class="dropdown-item" onclick="removeFromFavorites('hemorragia')">🗑️ Quitar de favoritos</div>
+                                <div class="dropdown-item" onclick="downloadEmergency('hemorragia')">⬇️ Descargar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="corner-logo">
-        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Asclepio Logo">
+    <!-- Botón flotante de chat IA -->
+    <button class="chat-ia-btn" onclick="openChatIA()">
+        <img src="https://img.icons8.com/ios-filled/32/ffffff/chat.png" alt="Chat IA" class="chat-ia-icon">
+        <span>Chat IA</span>
+    </button>
+
+    <!-- Modal del Chat IA -->
+    <div id="chat-modal" class="chat-modal">
+        <div class="chat-modal-content">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <img src="https://img.icons8.com/ios-filled/24/ffffff/robot.png" alt="IA" class="ai-icon">
+                    <h3>Asistente IA Asclepio</h3>
+                </div>
+                <button class="close-chat" onclick="closeChatIA()">×</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message ai-message">
+                    <div class="message-content">
+                        <p>¡Hola! Soy tu asistente IA de Asclepio. ¿En qué puedo ayudarte hoy?</p>
+                    </div>
+                    <span class="message-time">Ahora</span>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." onkeypress="handleChatInput(event)">
+                <button class="send-btn" onclick="sendMessage()">
+                    <img src="https://img.icons8.com/ios-filled/20/ffffff/sent.png" alt="Enviar">
+                </button>
+            </div>
+        </div>
     </div>
 
     <script src="js/menu.js"></script>

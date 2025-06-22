@@ -31,23 +31,19 @@ menuIcons.forEach(icon => {
         const iconName = icon.querySelector('p').textContent;
         console.log('Icono clickeado:', iconName);
         
-        // Aquí puedes agregar la navegación a diferentes secciones
+        // Navegación directa a diferentes secciones sin alertas
         switch(iconName) {
             case 'Emergencia':
-                alert('Ir a Emergencia');
-                // window.location.href = 'emergencia.html';
+                showEmergencySection();
                 break;
             case 'Historial':
-                alert('Ir a Historial');
-                // window.location.href = 'historial.html';
+                showHistorialSection();
                 break;
             case 'Mapa':
-                alert('Ir a Mapa');
-                // window.location.href = 'mapa.html';
+                showMapSection();
                 break;
             case 'Favoritos':
-                alert('Ir a Favoritos');
-                // window.location.href = 'favoritos.html';
+                showFavoritosSection();
                 break;
         }
     });
@@ -254,5 +250,241 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = 'login.html';
             }
         });
+    }
+    
+    // Event listener para el formulario de incidente
+    const incidentForm = document.querySelector('.incident-form');
+    if (incidentForm) {
+        incidentForm.addEventListener('submit', handleIncidentSubmit);
+    }
+});
+
+// Función para manejar el envío del formulario de incidente
+function handleIncidentSubmit(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const incidentData = {
+        paciente: formData.get('paciente'),
+        edad: formData.get('edad'),
+        sintomas: formData.get('sintomas'),
+        diagnostico: formData.get('diagnostico'),
+        tratamiento: formData.get('tratamiento'),
+        estado: formData.get('estado'),
+        fecha: new Date().toISOString()
+    };
+    
+    // Validar campos requeridos
+    if (!incidentData.paciente || !incidentData.edad || !incidentData.sintomas || !incidentData.estado) {
+        showNotification('Por favor completa todos los campos requeridos', 'error');
+        return;
+    }
+    
+    // Simular envío (aquí se conectaría con el backend)
+    console.log('Datos del incidente:', incidentData);
+    
+    // Mostrar notificación de éxito
+    showNotification('Incidente registrado exitosamente', 'success');
+    
+    // Limpiar formulario
+    e.target.reset();
+    
+    // Opcional: Guardar en localStorage para historial local
+    saveIncidentToHistory(incidentData);
+}
+
+// Función para guardar incidente en el historial local
+function saveIncidentToHistory(incidentData) {
+    let history = JSON.parse(localStorage.getItem('incidentHistory') || '[]');
+    history.push(incidentData);
+    localStorage.setItem('incidentHistory', JSON.stringify(history));
+}
+
+// Función para quitar de favoritos
+function removeFromFavorites(itemId) {
+    // Simular remoción de favoritos
+    console.log('Removiendo de favoritos:', itemId);
+    
+    // Mostrar notificación
+    showNotification('Removido de favoritos', 'success');
+    
+    // Aquí se podría actualizar la UI para remover la tarjeta
+    // Por ahora solo cerramos el dropdown
+    const dropdown = document.getElementById(`dropdown-${itemId}-fav`);
+    if (dropdown) {
+        dropdown.style.display = 'none';
+    }
+}
+
+// Función para mostrar opciones adicionales (actualizada para favoritos)
+function showMoreOptions(itemId) {
+    // Cerrar todos los dropdowns primero
+    const allDropdowns = document.querySelectorAll('.dropdown-menu');
+    allDropdowns.forEach(dropdown => {
+        dropdown.style.display = 'none';
+    });
+    
+    // Mostrar el dropdown específico
+    const dropdown = document.getElementById(`dropdown-${itemId}`);
+    if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+}
+
+// Cerrar dropdowns al hacer clic fuera de ellos
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.more-options')) {
+        const allDropdowns = document.querySelectorAll('.dropdown-menu');
+        allDropdowns.forEach(dropdown => {
+            dropdown.style.display = 'none';
+        });
+    }
+});
+
+// Función para descargar emergencia
+function downloadEmergency(itemId) {
+    console.log('Descargando emergencia:', itemId);
+    showNotification('Descargando información...', 'info');
+    
+    // Simular descarga
+    setTimeout(() => {
+        showNotification('Descarga completada', 'success');
+    }, 2000);
+}
+
+// Función para alternar favorito
+function toggleFavorite(itemId) {
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const favoriteIcon = document.getElementById(`favorite-${itemId}`);
+    
+    if (favorites.includes(itemId)) {
+        // Remover de favoritos
+        favorites = favorites.filter(id => id !== itemId);
+        favoriteIcon.textContent = '🤍';
+        showNotification('Removido de favoritos', 'success');
+    } else {
+        // Agregar a favoritos
+        favorites.push(itemId);
+        favoriteIcon.textContent = '❤️';
+        showNotification('Agregado a favoritos', 'success');
+    }
+    
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+// Función para navegar al detalle de emergencia
+function openEmergencyDetail(itemId) {
+    window.location.href = `emergency-detail.html?id=${itemId}`;
+}
+
+// Función para compartir emergencia
+function shareEmergency(itemId) {
+    const emergencyTitles = {
+        'rcp': 'Reanimación Cardiopulmonar (RCP)',
+        'hemorragia': 'Control de Hemorragias',
+        'quemaduras': 'Primeros Auxilios en Quemaduras',
+        'ahogamiento': 'Rescate por Ahogamiento',
+        'fracturas': 'Inmovilización de Fracturas',
+        'ataque-cardiaco': 'Síntomas de Ataque Cardíaco'
+    };
+    
+    const title = emergencyTitles[itemId] || 'Emergencia Médica';
+    const url = `${window.location.origin}${window.location.pathname.replace('menu.html', 'emergency-detail.html')}?id=${itemId}`;
+    
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: 'Información importante sobre emergencias médicas',
+            url: url
+        }).then(() => {
+            showNotification('Compartido exitosamente', 'success');
+        }).catch(() => {
+            showNotification('Error al compartir', 'error');
+        });
+    } else {
+        navigator.clipboard.writeText(url).then(() => {
+            showNotification('URL copiada al portapapeles', 'success');
+        }).catch(() => {
+            showNotification('Error al copiar URL', 'error');
+        });
+    }
+}
+
+// Función para reportar emergencia
+function reportEmergency(itemId) {
+    console.log('Reportando emergencia:', itemId);
+    showNotification('Reporte enviado', 'success');
+}
+
+// Función para abrir el chat IA
+function openChatIA() {
+    const modal = document.getElementById('chat-modal');
+    modal.style.display = 'block';
+    document.getElementById('chat-input').focus();
+}
+
+// Función para cerrar el chat IA
+function closeChatIA() {
+    const modal = document.getElementById('chat-modal');
+    modal.style.display = 'none';
+}
+
+// Función para manejar el envío de mensajes
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
+    
+    if (message) {
+        addMessage(message, 'user');
+        input.value = '';
+        
+        // Simular respuesta de la IA
+        setTimeout(() => {
+            const responses = [
+                "Entiendo tu consulta. ¿Te gustaría que te ayude con información sobre emergencias médicas?",
+                "Gracias por tu mensaje. Estoy aquí para ayudarte con cualquier duda médica.",
+                "Interesante pregunta. Déjame buscar la información más relevante para ti.",
+                "Como asistente IA de Asclepio, puedo ayudarte con información sobre primeros auxilios y emergencias médicas."
+            ];
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            addMessage(randomResponse, 'ai');
+        }, 1000);
+    }
+}
+
+// Función para agregar mensajes al chat
+function addMessage(text, sender) {
+    const messagesContainer = document.getElementById('chat-messages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}-message`;
+    
+    const now = new Date();
+    const timeString = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+    
+    messageDiv.innerHTML = `
+        <div class="message-content">
+            <p>${text}</p>
+        </div>
+        <span class="message-time">${timeString}</span>
+    `;
+    
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Función para manejar la tecla Enter en el input
+function handleChatInput(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+// Cerrar modal al hacer clic fuera de él
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('chat-modal');
+    const chatBtn = document.querySelector('.chat-ia-btn');
+    
+    if (event.target === modal) {
+        closeChatIA();
     }
 }); 
