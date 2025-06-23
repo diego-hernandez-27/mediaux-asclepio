@@ -429,49 +429,6 @@ function closeChatIA() {
     modal.style.display = 'none';
 }
 
-// Función para manejar el envío de mensajes
-function sendMessage() {
-    const input = document.getElementById('chat-input');
-    const message = input.value.trim();
-    
-    if (message) {
-        addMessage(message, 'user');
-        input.value = '';
-        
-        // Simular respuesta de la IA
-        setTimeout(() => {
-            const responses = [
-                "Entiendo tu consulta. ¿Te gustaría que te ayude con información sobre emergencias médicas?",
-                "Gracias por tu mensaje. Estoy aquí para ayudarte con cualquier duda médica.",
-                "Interesante pregunta. Déjame buscar la información más relevante para ti.",
-                "Como asistente IA de Asclepio, puedo ayudarte con información sobre primeros auxilios y emergencias médicas."
-            ];
-            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-            addMessage(randomResponse, 'ai');
-        }, 1000);
-    }
-}
-
-// Función para agregar mensajes al chat
-function addMessage(text, sender) {
-    const messagesContainer = document.getElementById('chat-messages');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${sender}-message`;
-    
-    const now = new Date();
-    const timeString = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
-    
-    messageDiv.innerHTML = `
-        <div class="message-content">
-            <p>${text}</p>
-        </div>
-        <span class="message-time">${timeString}</span>
-    `;
-    
-    messagesContainer.appendChild(messageDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-}
-
 // Función para manejar la tecla Enter en el input
 function handleChatInput(event) {
     if (event.key === 'Enter') {

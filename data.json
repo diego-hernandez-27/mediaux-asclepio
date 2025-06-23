@@ -1,0 +1,277 @@
+{
+  "precauciones": {
+  "titulo": "Precauciones",
+  "categoria": "Medidas importantes",
+  "descripcion": "Las emergencias médicas pueden ocurrir todos los días y en cualquier entorno. Las personas pueden lesionarse en situaciones como caídas o accidentes de vehículos a motor, o desarrollar enfermedades repentinas como ataques al corazón o derrames cerebrales.\n\nLas estadísticas muestran que cerca de 900,000 personas en EE. UU. mueren cada año por enfermedades del corazón, siendo los paros cardíacos repentinos responsables de más de 300,000 de esas muertes. Además, en 2008 unas 118,000 personas murieron por lesiones no intencionadas y 25.7 millones quedaron discapacitadas.\n\nDado el gran número de lesiones y enfermedades repentinas, es probable que cualquier persona se enfrente a una emergencia en algún momento. Es fundamental saber a quién llamar, cuándo hacerlo y cómo ayudar hasta que llegue la asistencia médica.",
+  "pasos": [
+    "Advertir que hay una emergencia",
+    "Decidir actuar",
+    "Activar el sistema de servicios médicos de emergencia",
+    "Atender hasta que llegue la ayuda"
+  ],
+  "resumen": "Las emergencias médicas ocurren de forma inesperada. Estar preparado para reconocerlas, actuar con decisión, activar el sistema de emergencias y brindar ayuda inicial puede salvar vidas.",
+  "imagen": "img/primeros-auxilios-enfermeria.png",
+  "icono": "img/icons/caution.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 1)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 13
+  },
+  "atragantamiento": {
+  "titulo": "Obstrucción de la vía aérea",
+  "categoria": "Emergencias respiratorias",
+  "descripcion": "El atragantamiento ocurre cuando un objeto bloquea parcial o totalmente la vía aérea. Una persona con obstrucción total no puede hablar, respirar ni toser. El gesto universal es llevarse las manos al cuello.",
+  "pasos": [
+    "Animar a la persona a toser si puede",
+    "Dar 5 golpes en la espalda",
+    "Aplicar 5 compresiones abdominales",
+    "Repetir hasta que el objeto salga o la persona quede inconsciente",
+    "Llamar al 911 si la situación no se resuelve"
+  ],
+  "resumen": "El atragantamiento puede causar una emergencia respiratoria grave. Actuar rápido puede salvar una vida.",
+  "imagen": "assets/atragantamiento.png",
+  "icono" : "img/icons/obstruction.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 62)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 62
+  },
+  "rcp_adulto": {
+  "titulo": "RCP para adultos",
+  "categoria": "Emergencias cardíacas",
+  "descripcion": "La reanimación cardiopulmonar (RCP) ayuda a mantener la circulación de sangre y oxígeno cuando el corazón se ha detenido. Es crucial actuar de inmediato.",
+  "pasos": [
+    "Verificar si la persona responde",
+    "Llamar al 911",
+    "Comprobar si respira",
+    "Aplicar compresiones en el pecho (100–120 por minuto)",
+    "Dar 2 soplos de rescate si se entrena en respiración",
+    "Repetir el ciclo hasta que llegue ayuda"
+  ],
+  "resumen": "La RCP salva vidas. Comenzar rápidamente puede duplicar o triplicar la probabilidad de supervivencia.",
+  "imagen": "assets/rcp-adulto.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 41)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 41
+  },
+  "dificultad_respiratoria": {
+  "titulo": "Paro respiratorio y dificultad para respirar",
+  "categoria": "Emergencias respiratorias",
+  "descripcion": "Cuando una persona tiene problemas para respirar o ha dejado de hacerlo, la situación puede volverse crítica en minutos. El reconocimiento temprano es esencial.",
+  "pasos": [
+    "Revisar si hay respiración normal",
+    "Llamar al 911",
+    "Aflojar ropa apretada",
+    "Ayudar a que la persona se siente",
+    "Tranquilizar y monitorizar hasta que llegue ayuda"
+  ],
+  "resumen": "Reconocer problemas respiratorios rápidamente puede prevenir un paro cardíaco y salvar vidas.",
+  "imagen": "assets/paro-respiratorio.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 57)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 57
+  },
+  "ataque_cardiaco": {
+  "titulo": "Ataque cardíaco",
+  "categoria": "Emergencias cardíacas",
+  "descripcion": "Ocurre cuando el flujo de sangre al corazón se bloquea. Puede provocar la muerte si no se trata de inmediato.",
+  "pasos": [
+    "Reconocer signos (dolor en pecho, brazo, mandíbula)",
+    "Llamar al 911 de inmediato",
+    "Poner a la persona en posición cómoda",
+    "Aflojar la ropa",
+    "Prepararse para iniciar RCP si pierde conciencia"
+  ],
+  "resumen": "Reconocer rápidamente un ataque cardíaco y buscar ayuda inmediata es clave para aumentar la supervivencia.",
+  "imagen": "assets/ataque-cardiaco.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 41)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 41
+  },
+  "dea": {
+  "titulo": "Desfibrilador Externo Automático (DEA)",
+  "categoria": "Emergencias cardíacas",
+  "descripcion": "Un DEA es un dispositivo portátil que analiza el ritmo del corazón y administra una descarga eléctrica si es necesario para restablecer un ritmo cardíaco efectivo.",
+  "pasos": [
+    "Encienda el DEA y siga las instrucciones.",
+    "Coloque los electrodos en el pecho descubierto.",
+    "Asegúrese de que nadie esté tocando a la persona.",
+    "Presione el botón de descarga si se indica.",
+    "Reanude la RCP inmediatamente después."
+  ],
+  "resumen": "El DEA puede salvar vidas restableciendo el ritmo cardíaco tras un paro. Debe usarse lo antes posible junto con RCP.",
+  "imagen": "assets/dea.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 47-54)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 47
+  },
+  "hemorragias": {
+  "titulo": "Control de Hemorragias",
+  "categoria": "Traumas físicos",
+  "descripcion": "Una hemorragia es una pérdida rápida de sangre, que puede ser interna o externa. El objetivo es controlar el sangrado lo antes posible para evitar complicaciones graves o la muerte.",
+  "pasos": [
+    "Aplique presión directa sobre la herida con un paño.",
+    "No retire el paño si se empapa; añada más encima.",
+    "Eleve la parte afectada si es posible.",
+    "Aplique un vendaje firme.",
+    "Llame a emergencias si el sangrado no cede."
+  ],
+  "resumen": "Detener el sangrado rápidamente es crucial. Aplique presión, eleve y mantenga vendado mientras espera ayuda médica.",
+  "imagen": "assets/hemorragia.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 61)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 61
+  },
+  "asfixia": {
+  "titulo": "Obstrucción de vías respiratorias (Asfixia)",
+  "categoria": "Emergencias respiratorias",
+  "descripcion": "La obstrucción de las vías respiratorias ocurre cuando un objeto bloquea el paso del aire, lo que puede causar asfixia. Puede ser parcial o total, y requiere atención inmediata.",
+  "pasos": [
+    "Pregunte si puede hablar o toser.",
+    "Si no puede, administre 5 golpes entre los omóplatos.",
+    "Siga con 5 compresiones abdominales (maniobra de Heimlich).",
+    "Repita hasta que el objeto salga o la persona quede inconsciente.",
+    "Llame al 9-1-1 si la situación no mejora rápidamente."
+  ],
+  "resumen": "Si alguien no puede respirar por un objeto atascado, actúe de inmediato con golpes y compresiones para desalojarlo.",
+  "imagen": "assets/asfixia.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 55)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 55
+  },
+  "derrame_cerebral": {
+  "titulo": "Derrame Cerebral",
+  "categoria": "Emergencias neurológicas",
+  "descripcion": "Un derrame cerebral ocurre cuando se interrumpe el flujo sanguíneo hacia el cerebro, ya sea por bloqueo o ruptura de un vaso. Puede causar parálisis, pérdida del habla, visión borrosa o confusión.",
+  "pasos": [
+    "Llame al 9-1-1 inmediatamente.",
+    "Tome nota del tiempo de inicio de los síntomas.",
+    "Haga que la persona se siente y se mantenga tranquila.",
+    "Observe signos como debilidad facial, dificultad para hablar o levantar los brazos.",
+    "No le dé comida ni bebida."
+  ],
+  "resumen": "Un derrame cerebral requiere atención médica urgente. Actuar rápido puede reducir las secuelas graves.",
+  "imagen": "assets/derrame-cerebral.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 72–74)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 72
+  },
+  "convulsiones": {
+  "titulo": "Convulsiones",
+  "categoria": "Emergencias neurológicas",
+  "descripcion": "Las convulsiones son episodios de actividad eléctrica anormal en el cerebro, que provocan movimientos involuntarios, pérdida de conciencia o rigidez. Pueden deberse a epilepsia, fiebre o lesiones.",
+  "pasos": [
+    "No intente detener la convulsión.",
+    "Retire objetos peligrosos cerca de la persona.",
+    "Colóquela de lado después del episodio.",
+    "No introduzca nada en su boca.",
+    "Permanezca con la persona hasta que recupere la conciencia."
+  ],
+  "resumen": "Las convulsiones suelen durar pocos minutos. Mantenga la seguridad y permita que la persona se recupere tranquila.",
+  "imagen": "assets/convulsion.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 71)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 71
+  },
+  "shock": {
+  "titulo": "Estado de Shock",
+  "categoria": "Emergencias médicas",
+  "descripcion": "El shock ocurre cuando el cuerpo no recibe suficiente sangre rica en oxígeno. Puede ser causado por traumatismos, quemaduras, alergias severas o enfermedades graves. Afecta a órganos vitales como el cerebro y el corazón.",
+  "pasos": [
+    "Llame a emergencias.",
+    "Acuda a la persona en posición cómoda y sin ropa ajustada.",
+    "No le dé nada por vía oral.",
+    "Mantenga la temperatura corporal adecuada.",
+    "Tranquilice y vigile signos vitales hasta que llegue ayuda."
+  ],
+  "resumen": "El shock es una falla circulatoria crítica. Debe tratarse con rapidez para prevenir daño a órganos vitales.",
+  "imagen": "assets/shock.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 70)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 70
+  },
+  "fractura": {
+  "titulo": "Fracturas",
+  "categoria": "Traumas físicos",
+  "descripcion": "Una fractura es una ruptura o grieta en un hueso. Puede ser cerrada (sin salida al exterior) o expuesta (el hueso atraviesa la piel), lo cual implica más riesgo de infección.",
+  "pasos": [
+    "Inmovilice el área sin intentar alinear el hueso.",
+    "Aplique hielo para reducir inflamación.",
+    "Llame a emergencias si hay dolor intenso o deformidad visible.",
+    "Evite que la persona use la extremidad lesionada.",
+    "Vigile signos de shock si hay sangrado o lesión grave."
+  ],
+  "resumen": "Las fracturas requieren inmovilización inmediata y atención médica para evitar complicaciones.",
+  "imagen": "assets/fractura.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 120)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 120
+  },
+  "quemaduras": {
+  "titulo": "Quemaduras",
+  "categoria": "Lesiones por calor o químicos",
+  "descripcion": "Las quemaduras pueden ser superficiales, de espesor parcial o total. Pueden ser causadas por calor, electricidad, productos químicos o radiación, y requieren tratamiento según su gravedad.",
+  "pasos": [
+    "Retire a la persona de la fuente de calor o químico.",
+    "Enfríe la quemadura con agua limpia y fría.",
+    "Cubra con un paño limpio o apósito sin apretar.",
+    "No reviente ampollas ni aplique ungüentos caseros.",
+    "Llame a emergencias si la quemadura es extensa o en áreas delicadas."
+  ],
+  "resumen": "Las quemaduras requieren atención cuidadosa. Enfríe la zona y proteja la herida hasta que llegue ayuda.",
+  "imagen": "assets/quemaduras.jpg",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 106)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 118
+  },
+  "intoxicaciones": {
+  "titulo": "Intoxicaciones",
+  "categoria": "Emergencias por sustancias",
+  "descripcion": "Una intoxicación ocurre cuando una sustancia causa daño al ser ingerida, inhalada, inyectada o absorbida. Más del 90% de las intoxicaciones ocurren en el hogar. Es vital identificar la sustancia y buscar ayuda rápidamente.",
+  "pasos": [
+    "Llame de inmediato al 9-1-1 o al Centro de Control de Envenenamiento (1-800-222-1222).",
+    "No induzca el vómito a menos que lo indique un profesional.",
+    "Identifique la sustancia y conserve su envase si es posible.",
+    "Controle signos de vida y vigile cambios en el estado de conciencia.",
+    "Siga las instrucciones del profesional de emergencias."
+  ],
+  "resumen": "Las intoxicaciones deben tratarse rápido. Llame al centro de envenenamiento y proporcione datos sobre la sustancia para recibir orientación adecuada.",
+  "imagen": "assets/intoxicacion.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 76)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 76
+  },
+  "alergias_graves": {
+  "titulo": "Reacciones Alérgicas Graves (Anafilaxia)",
+  "categoria": "Emergencias médicas",
+  "descripcion": "La anafilaxia es una reacción alérgica grave que puede causar dificultad para respirar, hinchazón y shock. Puede ser desencadenada por alimentos, medicamentos o picaduras. Es potencialmente mortal si no se trata de inmediato.",
+  "pasos": [
+    "Llame al 9-1-1 de inmediato.",
+    "Ayude a la persona a usar un autoinyector de epinefrina (EpiPen).",
+    "Si la persona está consciente, tranquilícela y vigile su respiración.",
+    "Ayude a administrar un antihistamínico si está disponible y permitido.",
+    "Controle cualquier cambio en el estado de la persona hasta que llegue ayuda."
+  ],
+  "resumen": "La anafilaxia puede causar la muerte en minutos. Usar epinefrina rápidamente y buscar ayuda médica es esencial.",
+  "imagen": "assets/alergias.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 154-158)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 154
+  },
+  "heimlich": {
+  "titulo": "Maniobra de Heimlich (Atragantamiento)",
+  "categoria": "Emergencias respiratorias",
+  "descripcion": "La maniobra de Heimlich se utiliza cuando una persona adulta consciente se atraganta y no puede hablar, toser o respirar. Consiste en una serie de compresiones abdominales para expulsar el objeto que obstruye la vía aérea.",
+  "pasos": [
+    "Pregunte si puede hablar o toser.",
+    "Párese detrás de la persona y coloque los brazos alrededor de su cintura.",
+    "Cierre un puño y colóquelo por encima del ombligo.",
+    "Tome el puño con la otra mano y dé una compresión rápida hacia adentro y arriba.",
+    "Repita hasta que el objeto salga o la persona quede inconsciente."
+  ],
+  "resumen": "Si una persona no puede respirar por un objeto atorado, use la maniobra de Heimlich con compresiones abdominales hasta que la vía se libere.",
+  "imagen": "assets/heimlich.png",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 55)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 55
+  }
+
+}
