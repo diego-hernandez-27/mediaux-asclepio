@@ -53,7 +53,7 @@ $conexion->close();
                     </div>
                 </div>
                 <div class="profile-info">
-                    <h2 id="user-name"><?= htmlspecialchars($datos['nombre'] . ' ' . $datos['apellido_paterno']) ?></h2>
+                    <h2 id="user-name"><?= htmlspecialchars($_SESSION['usuario']) ?></h2>
                     <p id="user-email"><?= htmlspecialchars($datos['correo']) ?></p>
                     <span class="status-badge">Activo</span>
                 </div>
