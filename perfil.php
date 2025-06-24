@@ -13,7 +13,7 @@
             <h1>ASCLEPIO</h1>
         </div>
         <div class="back-button">
-            <a href="menu.html" class="btn-back">← Volver al Menú</a>
+            <a href="menu.php" class="btn-back">← Volver al Menú</a>
         </div>
     </div>
 

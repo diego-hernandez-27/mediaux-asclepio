@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,7 +22,7 @@
             <h1>ASCLEPIO</h1>
         </div>
         <div class="user-profile">
-            <span class="username">Usuario</span>
+            <span class="username"><?= htmlspecialchars($_SESSION['usuario']) ?></span>
             <img src="https://i.imgur.com/4ZQeZsK.png" alt="Profile" class="profile-pic">
         </div>
     </div>

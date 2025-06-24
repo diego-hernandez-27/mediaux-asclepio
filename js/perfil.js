@@ -37,7 +37,7 @@ function logout() {
         
         // Redirigir al login después de un breve delay
         setTimeout(() => {
-            window.location.href = 'login.html';
+            window.location.href = 'login.php';
         }, 1500);
     }
 }

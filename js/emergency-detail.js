@@ -18,7 +18,7 @@ function loadEmergencyData() {
     }
 
     if (!emergencyId || !emergencyData[emergencyId]) {
-        window.location.href = 'menu.html';
+        window.location.href = 'menu.php';
         return;
     }
 
@@ -142,7 +142,7 @@ function shareEmergency() {
 
 // Volver
 function goBack() {
-    window.location.href = 'menu.html';
+    window.location.href = 'menu.php';
 }
 
 // Notificación
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const usernameElement = document.querySelector('.username');
     if (usernameElement) {
-        usernameElement.addEventListener('click', () => window.location.href = 'perfil.html');
+        usernameElement.addEventListener('click', () => window.location.href = 'perfil.php');
     }
 
     const logoTitle = document.querySelector('.logo-title');
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
         logoTitle.addEventListener('dblclick', () => {
             if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
                 localStorage.clear();
-                window.location.href = 'login.html';
+                window.location.href = 'login.php';
             }
         });
     }

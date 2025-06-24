@@ -53,7 +53,7 @@ menuIcons.forEach(icon => {
 username.addEventListener('click', () => {
     console.log('Perfil de usuario clickeado');
     // Navegar al perfil
-    window.location.href = 'perfil.html';
+    window.location.href = 'perfil.php';
 });
 
 // Cargar nombre de usuario desde localStorage (si existe)
@@ -67,7 +67,7 @@ function loadUserData() {
 // Función para cerrar sesión
 function logout() {
     localStorage.removeItem('username');
-    window.location.href = 'login.html';
+    window.location.href = 'login.php';
 }
 
 // Agregar funcionalidad de logout al hacer doble clic en el username
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const usernameElement = document.querySelector('.username');
     if (usernameElement) {
         usernameElement.addEventListener('click', function() {
-            window.location.href = 'perfil.html';
+            window.location.href = 'perfil.php';
         });
     }
     
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
         logoTitle.addEventListener('dblclick', function() {
             if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
                 localStorage.clear();
-                window.location.href = 'login.html';
+                window.location.href = 'login.php';
             }
         });
     }
@@ -374,7 +374,7 @@ function toggleFavorite(itemId) {
 
 // Función para navegar al detalle de emergencia
 function openEmergencyDetail(itemId) {
-    window.location.href = `emergency-detail.html?id=${itemId}`;
+    window.location.href = `emergency-detail.php?id=${itemId}`;
 }
 
 // Función para compartir emergencia
@@ -389,7 +389,7 @@ function shareEmergency(itemId) {
     };
     
     const title = emergencyTitles[itemId] || 'Emergencia Médica';
-    const url = `${window.location.origin}${window.location.pathname.replace('menu.html', 'emergency-detail.html')}?id=${itemId}`;
+    const url = `${window.location.origin}${window.location.pathname.replace('menu.php', 'emergency-detail.php')}?id=${itemId}`;
     
     if (navigator.share) {
         navigator.share({

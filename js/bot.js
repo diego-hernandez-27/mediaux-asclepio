@@ -128,7 +128,7 @@ async function sendMessage() {
         localStorage.setItem("casoSeleccionado", resultado.caso);
         const irAhora = confirm(`¿Quieres ver la información sobre "${resultado.caso.replace(/_/g, " ")}"?`);
         if (irAhora) {
-          window.location.href = `emergency-detail.html?caso=${encodeURIComponent(resultado.caso)}`;
+          window.location.href = `emergency-detail.php?caso=${encodeURIComponent(resultado.caso)}`;
           closeChatIA();
         }
       });
@@ -143,7 +143,7 @@ async function sendMessage() {
       localStorage.setItem("casoSeleccionado", resultado.caso);
       const irAhora = confirm(`¿Quieres ver la información sobre "${resultado.caso.replace(/_/g, " ")}"?`);
       if (irAhora) {
-        window.location.href = `emergency-detail.html?caso=${encodeURIComponent(resultado.caso)}`;
+        window.location.href = `emergency-detail.php?caso=${encodeURIComponent(resultado.caso)}`;
         closeChatIA();
       }
     }
