@@ -56,19 +56,29 @@
                                 value="<?= htmlspecialchars($_GET['apellido_materno'] ?? '') ?>" />
                         </div>
                         <div class="col-md-6 mb-3">
-                            <input type="email" name="correo" class="form-control" placeholder="Correo electrónico" required
-                                value="<?= htmlspecialchars($_GET['correo'] ?? '') ?>" />
+                          <input type="email" name="correo" class="form-control" placeholder="Correo electrónico" required
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            title="Debe ser un correo electrónico válido, como ejemplo@dominio.com"
+                            value="<?= htmlspecialchars($_GET['correo'] ?? '') ?>" />
                         </div>
+                        
                         <div class="col-md-6 mb-3">
-                            <input type="tel" name="telefono" class="form-control" placeholder="Teléfono"
-                                value="<?= htmlspecialchars($_GET['telefono'] ?? '') ?>" />
+                          <input type="text" name="telefono" class="form-control" placeholder="Teléfono"
+                            pattern="^\d{10}$"
+                            maxlength="10"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                            title="Máximo 10 dígitos numéricos"
+                            value="<?= htmlspecialchars($_GET['telefono'] ?? '') ?>" />
                         </div>
                         <div class="col-md-6 mb-3">
                             <input type="date" name="fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento" required
-                                value="<?= htmlspecialchars($_GET['fecha_nacimiento'] ?? '') ?>" />
+                              max="<?= date('Y-m-d', strtotime('-1 day')) ?>"
+                              value="<?= htmlspecialchars($_GET['fecha_nacimiento'] ?? '') ?>" />
                         </div>
                         <div class="col-md-12 mb-3">
-                            <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required />
+                          <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required
+                            pattern="^(?=.*[a-z])(?=.*[A-Z]).{7,}$"
+                            title="Debe contener al menos una mayúscula, una minúscula y mínimo 7 caracteres." />
                         </div>
                         <hr class="my-3">
                         <div class="col-md-12">
@@ -79,9 +89,14 @@
                                 value="<?= htmlspecialchars($_GET['calle'] ?? '') ?>" />
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input type="text" name="numero" class="form-control" placeholder="Número"
-                                value="<?= htmlspecialchars($_GET['numero'] ?? '') ?>" />
+                          <input type="text" name="numero" class="form-control" placeholder="Número"
+                            inputmode="numeric"
+                            pattern="^\d{1,5}$"
+                            maxlength="5"
+                            title="Solo números (máximo 5 dígitos)"
+                            value="<?= htmlspecialchars($_GET['numero'] ?? '') ?>" />
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <input type="text" name="colonia" class="form-control" placeholder="Colonia"
                                 value="<?= htmlspecialchars($_GET['colonia'] ?? '') ?>" />
@@ -94,9 +109,13 @@
                             <input type="text" name="estado" class="form-control" placeholder="Estado"
                                 value="<?= htmlspecialchars($_GET['estado'] ?? '') ?>" />
                         </div>
+                       
                         <div class="col-md-6 mb-3">
-                            <input type="text" name="codigo_postal" class="form-control" placeholder="Código Postal"
-                                value="<?= htmlspecialchars($_GET['codigo_postal'] ?? '') ?>" />
+                          <input type="text" name="codigo_postal" class="form-control" placeholder="Código Postal"
+                            pattern="^\d{5}$"
+                            maxlength="5"
+                            title="Debe contener exactamente 5 dígitos numéricos"
+                            value="<?= htmlspecialchars($_GET['codigo_postal'] ?? '') ?>" />
                         </div>
                     </div>
                     <button type="submit" class="btn btn-info w-100 mt-3">Registrarse</button>
@@ -120,5 +139,18 @@
       </div>
     </div>
   </section>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const soloNumeros = (input) => {
+      input.addEventListener("input", () => {
+        input.value = input.value.replace(/\D/g, ""); // Elimina cualquier caracter no numérico
+      });
+    };
+
+    soloNumeros(document.querySelector('input[name="telefono"]'));
+        soloNumeros(document.querySelector('input[name="numero"]'));
+    soloNumeros(document.querySelector('input[name="codigo_postal"]'));
+  });
+</script>
 </body>
 </html>

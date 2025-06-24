@@ -51,16 +51,23 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
                       <input type="text" name="apellido_materno" class="form-control" placeholder="Apellido materno" />
                     </div>
                     <div class="col-md-6 mb-3">
-                      <input type="email" name="correo" class="form-control" placeholder="Correo electrónico" required />
+                      <input type="email" name="correo" class="form-control" placeholder="Correo electrónico"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                        title="Ingresa un correo electrónico válido"
+                        required />
                     </div>
                     <div class="col-md-6 mb-3">
-                      <input type="tel" name="telefono" class="form-control" placeholder="Teléfono" />
+                      <input type="text" name="telefono" class="form-control" placeholder="Teléfono"
+                        inputmode="numeric" maxlength="10" pattern="^\d{10}$"
+                        title="Debe contener exactamente 10 dígitos" />
                     </div>
                     <div class="col-md-6 mb-3">
-                      <input type="date" name="fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento" required />
+                      <input type="date" name="fecha_nacimiento" class="form-control" max="<?= date('Y-m-d', strtotime('-1 day')) ?>" required />
                     </div>
                     <div class="col-md-12 mb-3">
-                      <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required />
+                      <input type="password" name="contrasena" class="form-control" placeholder="Contraseña"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z]).{7,}$"
+                        title="Debe contener al menos una mayúscula, una minúscula y mínimo 7 caracteres" required />
                     </div>
 
                     <hr class="my-3" />
@@ -73,7 +80,9 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
                       <input type="text" name="calle" class="form-control" placeholder="Calle" />
                     </div>
                     <div class="col-md-4 mb-3">
-                      <input type="text" name="numero" class="form-control" placeholder="Número" />
+                      <input type="text" name="numero" class="form-control" placeholder="Número"
+                        inputmode="numeric" maxlength="5" pattern="^\d{1,5}$"
+                        title="Solo números, máximo 5 dígitos" />
                     </div>
                     <div class="col-md-6 mb-3">
                       <input type="text" name="colonia" class="form-control" placeholder="Colonia" />
@@ -85,8 +94,10 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
                       <input type="text" name="estado" class="form-control" placeholder="Estado" />
                     </div>
                     <div class="col-md-6 mb-3">
-                      <input type="text" name="codigo_postal" class="form-control" placeholder="Código Postal" />
-                    </div>
+                    <input type="text" name="codigo_postal" class="form-control" placeholder="Código Postal"
+                      inputmode="numeric" maxlength="5" pattern="^\d{5}$"
+                      title="Debe contener exactamente 5 dígitos" />
+                  </div>
 
                     <div class="col-md-6 mb-3">
                       <label for="rol" class="form-label">Rol del usuario</label>
@@ -114,7 +125,20 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
       </div>
     </div>
   </section>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const soloNumeros = (input) => {
+      input.addEventListener("input", () => {
+        input.value = input.value.replace(/\D/g, ""); // Elimina cualquier caracter no numérico
+      });
+    };
 
+    soloNumeros(document.querySelector('input[name="telefono"]'));
+        soloNumeros(document.querySelector('input[name="numero"]'));
+    soloNumeros(document.querySelector('input[name="codigo_postal"]'));
+  });
+</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
 </body>
 </html>

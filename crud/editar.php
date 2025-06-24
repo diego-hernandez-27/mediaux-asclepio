@@ -78,75 +78,102 @@ $conexion->close();
                   <i class="fas fa-user-edit fa-2x me-2 text-info"></i>
                   <span class="h2 fw-bold">Editar Usuario</span>
                 </div>
+                  <form action="actualizar.php" method="POST" autocomplete="off">
+                    <input type="hidden" name="id" value="<?= $id ?>" />
 
-                <form action="actualizar.php" method="POST" autocomplete="off">
-                  <input type="hidden" name="id" value="<?= $id ?>" />
+                    <div class="row">
+                      <div class="col-md-12 mb-3">
+                        <input type="text" name="usuario" class="form-control" placeholder="Usuario" required value="<?= htmlspecialchars($usuario['usuario']) ?>" />
+                      </div>
 
-                  <div class="row">
-                    <div class="col-md-12 mb-3">
-                      <input type="text" name="usuario" class="form-control" placeholder="Usuario" required value="<?= htmlspecialchars($usuario['usuario']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="text" name="nombre" class="form-control" placeholder="Nombre" required value="<?= htmlspecialchars($usuario['nombre']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="text" name="apellido_paterno" class="form-control" placeholder="Apellido paterno" required value="<?= htmlspecialchars($usuario['apellido_paterno']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="text" name="apellido_materno" class="form-control" placeholder="Apellido materno" value="<?= htmlspecialchars($usuario['apellido_materno']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="email" name="correo" class="form-control" placeholder="Correo electrónico" required value="<?= htmlspecialchars($usuario['correo']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="tel" name="telefono" class="form-control" placeholder="Teléfono" value="<?= htmlspecialchars($usuario['telefono']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="date" name="fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento" required value="<?= htmlspecialchars($usuario['fecha_nacimiento']) ?>" />
-                    </div>
-                    <div class="col-md-12 mb-3">
-                      <small class="text-muted">Dejar vacío para no cambiar la contraseña</small>
-                      <input type="password" name="contrasena" class="form-control" placeholder="Nueva contraseña (opcional)" />
+                      <div class="col-md-6 mb-3">
+                        <input type="text" name="nombre" class="form-control" placeholder="Nombre" required value="<?= htmlspecialchars($usuario['nombre']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <input type="text" name="apellido_paterno" class="form-control" placeholder="Apellido paterno" required value="<?= htmlspecialchars($usuario['apellido_paterno']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <input type="text" name="apellido_materno" class="form-control" placeholder="Apellido materno" value="<?= htmlspecialchars($usuario['apellido_materno']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <input type="email" name="correo" class="form-control" placeholder="Correo electrónico" required
+                          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                          title="Ingresa un correo electrónico válido"
+                          value="<?= htmlspecialchars($usuario['correo']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <input type="text" name="telefono" class="form-control" placeholder="Teléfono"
+                          maxlength="10" inputmode="numeric" pattern="^\d{10}$"
+                          title="Debe contener exactamente 10 dígitos numéricos"
+                          value="<?= htmlspecialchars($usuario['telefono']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <input type="date" name="fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento" required
+                          max="<?= date('Y-m-d', strtotime('-1 day')) ?>"
+                          value="<?= htmlspecialchars($usuario['fecha_nacimiento']) ?>" />
+                      </div>
+
+                      <div class="col-md-12 mb-3">
+                        <small class="text-muted">Dejar vacío para no cambiar la contraseña</small>
+                        <input type="password" name="contrasena" class="form-control" placeholder="Nueva contraseña (opcional)"
+                          pattern="^(?=.*[a-z])(?=.*[A-Z]).{7,}$"
+                          title="Debe contener al menos una mayúscula, una minúscula y mínimo 7 caracteres" />
+                      </div>
+
+                      <hr class="my-3" />
+
+                      <div class="col-md-12">
+                        <h6 class="text-muted mb-3">Dirección</h6>
+                      </div>
+
+                      <div class="col-md-8 mb-3">
+                        <input type="text" name="calle" class="form-control" placeholder="Calle" value="<?= htmlspecialchars($direccion['calle']) ?>" />
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <input type="text" name="numero" class="form-control" placeholder="Número"
+                          maxlength="5" inputmode="numeric" pattern="^\d{1,5}$"
+                          title="Solo números, máximo 5 dígitos"
+                          value="<?= htmlspecialchars($direccion['numero']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <input type="text" name="colonia" class="form-control" placeholder="Colonia" value="<?= htmlspecialchars($direccion['colonia']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <input type="text" name="ciudad" class="form-control" placeholder="Ciudad" value="<?= htmlspecialchars($direccion['ciudad']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <input type="text" name="estado" class="form-control" placeholder="Estado" value="<?= htmlspecialchars($direccion['estado']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <input type="text" name="codigo_postal" class="form-control" placeholder="Código Postal"
+                          maxlength="5" inputmode="numeric" pattern="^\d{5}$"
+                          title="Debe contener exactamente 5 dígitos"
+                          value="<?= htmlspecialchars($direccion['codigo_postal']) ?>" />
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <label for="rol" class="form-label">Rol del usuario</label>
+                        <select name="rol" id="rol" class="form-select" required>
+                          <option value="usuario" <?= $usuario['rol'] === 'usuario' ? 'selected' : '' ?>>Usuario</option>
+                          <option value="admin" <?= $usuario['rol'] === 'admin' ? 'selected' : '' ?>>Administrador</option>
+                        </select>
+                      </div>
                     </div>
 
-                    <hr class="my-3" />
-
-                    <div class="col-md-12">
-                      <h6 class="text-muted mb-3">Dirección</h6>
-                    </div>
-
-                    <div class="col-md-8 mb-3">
-                      <input type="text" name="calle" class="form-control" placeholder="Calle" value="<?= htmlspecialchars($direccion['calle']) ?>" />
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <input type="text" name="numero" class="form-control" placeholder="Número" value="<?= htmlspecialchars($direccion['numero']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="text" name="colonia" class="form-control" placeholder="Colonia" value="<?= htmlspecialchars($direccion['colonia']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="text" name="ciudad" class="form-control" placeholder="Ciudad" value="<?= htmlspecialchars($direccion['ciudad']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="text" name="estado" class="form-control" placeholder="Estado" value="<?= htmlspecialchars($direccion['estado']) ?>" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input type="text" name="codigo_postal" class="form-control" placeholder="Código Postal" value="<?= htmlspecialchars($direccion['codigo_postal']) ?>" />
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                      <label for="rol" class="form-label">Rol del usuario</label>
-                      <select name="rol" id="rol" class="form-select" required>
-                        <option value="usuario" <?= $usuario['rol'] === 'usuario' ? 'selected' : '' ?>>Usuario</option>
-                        <option value="admin" <?= $usuario['rol'] === 'admin' ? 'selected' : '' ?>>Administrador</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <button type="submit" class="btn btn-info w-100 mt-3">
-                    <i class="fas fa-save"></i> Actualizar Usuario
-                  </button>
-                </form>
+                    <button type="submit" class="btn btn-info w-100 mt-3">
+                      <i class="fas fa-save"></i> Actualizar Usuario
+                    </button>
+                  </form>
               </div>
 
               <div class="col-md-6 bg-form text-white d-flex flex-column align-items-center justify-content-center rounded-end">
@@ -159,7 +186,19 @@ $conexion->close();
         </div>
       </div>
     </section>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const soloNumeros = (input) => {
+      input.addEventListener("input", () => {
+        input.value = input.value.replace(/\D/g, ""); // Elimina cualquier caracter no numérico
+      });
+    };
 
+    soloNumeros(document.querySelector('input[name="telefono"]'));
+        soloNumeros(document.querySelector('input[name="numero"]'));
+    soloNumeros(document.querySelector('input[name="codigo_postal"]'));
+  });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
