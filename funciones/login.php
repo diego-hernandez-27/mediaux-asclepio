@@ -29,7 +29,7 @@ if ($stmt->num_rows === 1) {
         if ($rol === 'admin') {
             header("Location: ../crud/index.php");
         } else {
-            header("Location: ../index.php");
+            header("Location: ../menu.html");
         }
         exit;
     } else {
