@@ -25,7 +25,8 @@ function clasificadorLocal(texto) {
     { caso: "dificultad_respiratoria", patrones: [/\bdificultad para respirar\b/, /\bno puedo respirar\b/, /\basfixia\b/] },
     { caso: "ataque_cardiaco", patrones: [/\bataque( al)? corazón\b/, /\bdolor en el pecho\b/] },
     { caso: "alergias_graves", patrones: [/\balergia grave\b/, /\banafilaxia\b/, /\bhinchazón\b/, /\breacción alérgica\b/] },
-    { caso: "heimlich", patrones: [/\bmaniobra heimlich\b/, /\bcompresión abdominal\b/, /\bhecho heimlich\b/] }
+    { caso: "heimlich", patrones: [/\bmaniobra heimlich\b/, /\bcompresión abdominal\b/, /\bhecho heimlich\b/] },
+    { caso: "ahogamiento", patrones: [/\bahogamiento\b/, /\bme estoy ahogando\b/, /\bse ahogó\b/, /\btragó agua\b/, /\bsumergido\b/, /\bno respira tras nadar\b/] }
   ];
   for (const { caso, patrones } of reglas) {
     for (const regex of patrones) {
@@ -34,6 +35,7 @@ function clasificadorLocal(texto) {
   }
   return null;
 }
+
 
 // Clasificador IA (llama a tu backend Hugging Face)
 async function clasificadorIA(texto) {

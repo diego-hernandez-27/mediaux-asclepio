@@ -11,33 +11,24 @@ function getUrlParameter(name) {
 // Cargar datos desde data.json y luego la emergencia específica
 function loadEmergencyData() {
     let emergencyId = getUrlParameter('id');
-
+    
     if (!emergencyId) {
         emergencyId = localStorage.getItem("casoSeleccionado");
-        if (!emergencyId) {
-            console.warn("Ni ID en la URL ni casoSeleccionado. Redirigiendo...");
-            window.location.href = 'menu.html';
-            return;
-        }
+        localStorage.removeItem("casoSeleccionado");
     }
 
-    // No borres el caso seleccionado inmediatamente
-    currentEmergency = emergencyData[emergencyId];
-    if (!currentEmergency) {
-        console.error("ID inválido:", emergencyId);
+    if (!emergencyId || !emergencyData[emergencyId]) {
         window.location.href = 'menu.html';
         return;
     }
 
-    // Solo guardamos el caso si vino desde la URL
-    if (getUrlParameter('id')) {
-        localStorage.setItem("casoSeleccionado", emergencyId);
-    }
+    currentEmergency = emergencyData[emergencyId];
 
     loadUserData();
     updatePageContent();
     checkFavoriteStatus(emergencyId);
 }
+
 
 
 // Función para actualizar el contenido de la página
@@ -49,6 +40,7 @@ function updatePageContent() {
     document.getElementById('emergency-title').textContent = currentEmergency.titulo;
     document.getElementById('emergency-description').textContent = currentEmergency.descripcion;
     document.getElementById('emergency-image').src = currentEmergency.imagen;
+    document.getElementById('precautions-description').textContent = currentEmergency.nota;
 
     const stepsList = document.getElementById('precautions-steps');
     stepsList.innerHTML = '';

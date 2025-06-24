@@ -10,8 +10,12 @@
     "Atender hasta que llegue la ayuda"
   ],
   "resumen": "Las emergencias médicas ocurren de forma inesperada. Estar preparado para reconocerlas, actuar con decisión, activar el sistema de emergencias y brindar ayuda inicial puede salvar vidas.",
+  "nota": "Este artículo proporciona una visión general de las emergencias. No reemplaza el entrenamiento formal en primeros auxilios.",
   "imagen": "img/primeros-auxilios-enfermeria.png",
   "icono": "img/icons/caution.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Fácil",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 1)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 13
@@ -28,8 +32,12 @@
     "Llamar al 911 si la situación no se resuelve"
   ],
   "resumen": "El atragantamiento puede causar una emergencia respiratoria grave. Actuar rápido puede salvar una vida.",
-  "imagen": "assets/atragantamiento.png",
+  "nota": "Asegúrate de no administrar compresiones abdominales si la persona puede toser o hablar. Solo intervenir si hay obstrucción total.",
+  "imagen": "img/atragantamiento.webp",
   "icono" : "img/icons/obstruction.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Intermedio",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 62)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 62
@@ -42,12 +50,17 @@
     "Verificar si la persona responde",
     "Llamar al 911",
     "Comprobar si respira",
-    "Aplicar compresiones en el pecho (100–120 por minuto)",
+    "Aplicar compresiones en el pecho (100-120 por minuto)",
     "Dar 2 soplos de rescate si se entrena en respiración",
     "Repetir el ciclo hasta que llegue ayuda"
   ],
   "resumen": "La RCP salva vidas. Comenzar rápidamente puede duplicar o triplicar la probabilidad de supervivencia.",
-  "imagen": "assets/rcp-adulto.png",
+  "nota": "Es recomendable recibir entrenamiento certificado para aplicar RCP correctamente. No se recomienda improvisar si no se sabe cómo hacerlo.",
+  "imagen": "img/rcp.jpg",
+  "icono": "img/icons/heart-with-pulse.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Intermedio",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 41)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 41
@@ -64,6 +77,11 @@
     "Tranquilizar y monitorizar hasta que llegue ayuda"
   ],
   "resumen": "Reconocer problemas respiratorios rápidamente puede prevenir un paro cardíaco y salvar vidas.",
+  "nota": "Si la dificultad para respirar empeora rápidamente, se considera una emergencia médica grave. No retrases la llamada al 911.",
+  "icono": "img/icons/difficulty-breathing.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
   "imagen": "assets/paro-respiratorio.png",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 57)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
@@ -81,7 +99,12 @@
     "Prepararse para iniciar RCP si pierde conciencia"
   ],
   "resumen": "Reconocer rápidamente un ataque cardíaco y buscar ayuda inmediata es clave para aumentar la supervivencia.",
-  "imagen": "assets/ataque-cardiaco.png",
+  "nota": "Los síntomas pueden variar entre personas. No ignores signos leves si persisten o empeoran.",
+  "imagen": "img/ataque-cardiaco.jpeg",
+  "icono" : "img/icons/heart-attack.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 41)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 41
@@ -98,7 +121,12 @@
     "Reanude la RCP inmediatamente después."
   ],
   "resumen": "El DEA puede salvar vidas restableciendo el ritmo cardíaco tras un paro. Debe usarse lo antes posible junto con RCP.",
-  "imagen": "assets/dea.png",
+  "nota": "El DEA es seguro de usar. Sigue las instrucciones de voz del dispositivo y no temas usarlo incluso sin entrenamiento.",
+  "imagen": "img/dea.jpg",
+  "icono" : "img/icons/defibrillator.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Fácil",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 47-54)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 47
@@ -115,7 +143,12 @@
     "Llame a emergencias si el sangrado no cede."
   ],
   "resumen": "Detener el sangrado rápidamente es crucial. Aplique presión, eleve y mantenga vendado mientras espera ayuda médica.",
-  "imagen": "assets/hemorragia.png",
+  "nota" : "Controlar el sangrado temprano puede salvar vidas. Usa guantes si están disponibles para reducir el riesgo de infecciones.",
+  "imagen": "img/hemorragia.jpg",
+  "icono" : "img/icons/blood-drop.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 61)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 61
@@ -132,7 +165,12 @@
     "Llame al 9-1-1 si la situación no mejora rápidamente."
   ],
   "resumen": "Si alguien no puede respirar por un objeto atascado, actúe de inmediato con golpes y compresiones para desalojarlo.",
-  "imagen": "assets/asfixia.png",
+  "nota" : "Evita introducir los dedos en la boca de la persona a menos que veas claramente el objeto y puedas retirarlo con seguridad.",
+  "imagen": "img/asfixia.jpg",
+  "icono" : "img/icons/difficulty-breathing.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 55)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 55
@@ -149,8 +187,13 @@
     "No le dé comida ni bebida."
   ],
   "resumen": "Un derrame cerebral requiere atención médica urgente. Actuar rápido puede reducir las secuelas graves.",
-  "imagen": "assets/derrame-cerebral.png",
-  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 72–74)",
+  "nota" : "El tratamiento rápido mejora significativamente las posibilidades de recuperación. Aprende la regla FAST para reconocerlo.  FAST son siglas en inglés que corresponden a Face (cara), Arms (brazos), Speech (habla) y Time (tiempo). Actuar rápidamente al reconocer estos síntomas puede marcar una gran diferencia en el pronóstico del paciente. ",
+  "imagen": "img/derrame-cerebral.jpg",
+  "icono" : "img/icons/stroke.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 72-74)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 72
   },
@@ -166,7 +209,12 @@
     "Permanezca con la persona hasta que recupere la conciencia."
   ],
   "resumen": "Las convulsiones suelen durar pocos minutos. Mantenga la seguridad y permita que la persona se recupere tranquila.",
-  "imagen": "assets/convulsion.png",
+  "nota" : "Las convulsiones suelen durar menos de 5 minutos. Si se prolongan, ocurren varias seguidas o es la primera vez, llama al 911.",
+  "imagen": "img/convulsion.jpg",
+  "icono" : "img/icons/seizure.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Intermedio",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 71)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 71
@@ -183,7 +231,12 @@
     "Tranquilice y vigile signos vitales hasta que llegue ayuda."
   ],
   "resumen": "El shock es una falla circulatoria crítica. Debe tratarse con rapidez para prevenir daño a órganos vitales.",
-  "imagen": "assets/shock.png",
+  "nota" : "No des comida ni bebida, incluso si la persona lo solicita. Mantén la calma y la temperatura corporal estable.",
+  "imagen": "img/shock.jpeg",
+  "icono" : "img/icons/abandoned.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Intermedio",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 70)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 70
@@ -200,7 +253,12 @@
     "Vigile signos de shock si hay sangrado o lesión grave."
   ],
   "resumen": "Las fracturas requieren inmovilización inmediata y atención médica para evitar complicaciones.",
-  "imagen": "assets/fractura.png",
+  "nota" : "Evita mover la extremidad lesionada. Una mala manipulación puede agravar la fractura o causar daño interno.",
+  "imagen": "img/fractura.jpeg",
+  "icono" : "img/icons/broken-bone.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 120)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 120
@@ -217,7 +275,12 @@
     "Llame a emergencias si la quemadura es extensa o en áreas delicadas."
   ],
   "resumen": "Las quemaduras requieren atención cuidadosa. Enfríe la zona y proteja la herida hasta que llegue ayuda.",
-  "imagen": "assets/quemaduras.jpg",
+  "nota" : "No apliques mantequilla, aceite ni ungüentos caseros. Usa agua fría y vendajes limpios sin apretar.",
+  "imagen": "img/quemaduras.jpeg",
+  "icono" : "img/icons/burn.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 106)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 118
@@ -234,7 +297,12 @@
     "Siga las instrucciones del profesional de emergencias."
   ],
   "resumen": "Las intoxicaciones deben tratarse rápido. Llame al centro de envenenamiento y proporcione datos sobre la sustancia para recibir orientación adecuada.",
-  "imagen": "assets/intoxicacion.png",
+  "nota" : "No provoques el vómito a menos que lo indique un profesional. Guarda el envase de la sustancia para mostrarlo al personal médico.",
+  "imagen": "img/intoxicacion.jpg",
+  "icono" : "img/icons/virus.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 76)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 76
@@ -251,7 +319,12 @@
     "Controle cualquier cambio en el estado de la persona hasta que llegue ayuda."
   ],
   "resumen": "La anafilaxia puede causar la muerte en minutos. Usar epinefrina rápidamente y buscar ayuda médica es esencial.",
-  "imagen": "assets/alergias.png",
+  "nota" : "Si la persona tiene un autoinyector de epinefrina, ayúdala a usarlo. No esperes a que los síntomas empeoren.",
+  "imagen": "img/alergias.jpg",
+  "icono" : "img/icons/antihistamines.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 154-158)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 154
@@ -268,10 +341,38 @@
     "Repita hasta que el objeto salga o la persona quede inconsciente."
   ],
   "resumen": "Si una persona no puede respirar por un objeto atorado, use la maniobra de Heimlich con compresiones abdominales hasta que la vía se libere.",
-  "imagen": "assets/heimlich.png",
+  "nota" : "Solo aplica la maniobra si hay obstrucción total. No la uses en bebés menores de 1 año ni en personas inconscientes.",
+  "imagen": "img/heimlich.jpg",
+  "icono" : "img/icons/heimlich.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Intermedio",
   "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (pág. 55)",
   "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
   "pagina": 55
+  },
+  "ahogamiento": {
+  "titulo": "Ahogamiento",
+  "categoria": "Emergencias por inmersión",
+  "descripcion": "El ahogamiento ocurre cuando una persona no puede respirar debido a la inmersión en agua. La falta de oxígeno puede provocar daño cerebral o la muerte en minutos. Es fundamental actuar rápido y brindar asistencia respiratoria si la persona no respira.",
+  "pasos": [
+    "Saque a la persona del agua de forma segura.",
+    "Llame inmediatamente al 9-1-1.",
+    "Verifique si responde y respira.",
+    "Si no respira, comience RCP inmediatamente, comenzando con 2 ventilaciones.",
+    "Continúe con compresiones y ventilaciones hasta que llegue ayuda o la persona reaccione."
+  ],
+  "resumen": "El ahogamiento es una emergencia crítica. Si la persona no respira, administre RCP de inmediato después de sacarla del agua.",
+  "nota": "Evita poner en riesgo tu propia seguridad al intentar rescates en el agua. Contacta a personal capacitado si es posible.",
+  "imagen": "img/ahogamiento.jpg",
+  "icono" : "img/icons/drowning.png",
+  "badge": "CRITICO",
+  "tiempo": "2-3 min",
+  "dificultad": "Dificil",
+  "fuente": "Manual de Primeros Auxilios, Cruz Roja Americana (contenido relacionado en RCP y emergencias respiratorias, págs. 39-41 y 55)",
+  "archivo": "assets/FA-CPR-AED-Spanish-Manual.pdf",
+  "pagina": 39
   }
+
 
 }
