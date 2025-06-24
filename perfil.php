@@ -31,12 +31,16 @@ $conexion->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asclepio - Perfil de Usuario</title>
     <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/logos.css">
 </head>
 <body>
     <div class="header">
         <div class="logo-title">
-            <img src="img/logo.png" alt="Logo Asclepio" class="logo">
             <h1>ASCLEPIO</h1>
+            <div class="logo-container">
+                <img src="img/serpiente 2.png" alt="Logo Asclepio" class="logo">
+                <img src="img/mediaux.png" alt="Logo Mediaux" class="logo mediaux-logo">
+            </div>
         </div>
         <div class="back-button">
             <a href="menu.php" class="btn-back">← Volver al Menú</a>
@@ -47,7 +51,7 @@ $conexion->close();
         <div class="profile-card">
             <div class="profile-header">
                 <div class="profile-avatar">
-                    <img src="https://i.imgur.com/4ZQeZsK.png" alt="Avatar" class="avatar">
+                    <img src="./img/perfil/perfil.jpeg" alt="Avatar" class="avatar">
                     <div class="avatar-overlay">
                         <span>📷</span>
                     </div>

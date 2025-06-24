@@ -110,11 +110,80 @@ function toggleFavorite() {
 
 // Descargar
 function downloadEmergency() {
-    if (!currentEmergency) return;
-    showNotification('Descargando información...', 'info');
-    setTimeout(() => {
-        showNotification('Descarga completada', 'success');
-    }, 2000);
+    console.log('Datos de emergencia:', currentEmergency); // Depuración
+    
+    if (!currentEmergency) {
+        showNotification('No se puede descargar la emergencia', 'error');
+        return;
+    }
+
+    // Verificar que los datos necesarios existen
+    if (!currentEmergency.titulo || !currentEmergency.descripcion || !currentEmergency.pasos || !currentEmergency.resumen) {
+        console.error('Faltan datos necesarios para generar el PDF');
+        showNotification('No se pueden generar los datos del PDF', 'error');
+        return;
+    }
+
+    // Crear un nuevo PDF
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('p', 'pt', 'a4');
+    
+    // Configuración de márgenes y dimensiones
+    const margin = 40;
+    let y = margin;
+
+    // Agregar logo de Asclepio en la esquina superior izquierda
+    const logoUrl = 'img/serpiente 2.png';
+    doc.addImage(logoUrl, 'PNG', margin, margin, 50, 50);
+    y += 80; // Aumentar el espacio vertical
+    doc.setFontSize(24);
+    doc.setFont('helvetica', 'bold');
+    doc.text(currentEmergency.titulo, margin + 40, y); // Mover el texto más a la izquierda
+    y += 40;
+
+    // Agregar descripción
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'normal');
+    const descLines = doc.splitTextToSize(currentEmergency.descripcion, 500);
+    descLines.forEach(line => {
+        doc.text(line, margin + 40, y); // Mover el texto más a la izquierda
+        y += 15;
+    });
+    y += 20;
+
+    // Agregar pasos
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Pasos a seguir:', margin + 40, y); // Mover el texto más a la izquierda
+    y += 20;
+
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'normal');
+    currentEmergency.pasos.forEach((paso, index) => {
+        doc.text(`${index + 1}. ${paso}`, margin + 40, y); // Mover el texto más a la izquierda
+        y += 15;
+    });
+    y += 20;
+
+    // Agregar resumen
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Resumen:', margin + 40, y); // Mover el texto más a la izquierda
+    y += 20;
+
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'normal');
+    const summaryLines = doc.splitTextToSize(currentEmergency.resumen, 500);
+    summaryLines.forEach(line => {
+        doc.text(line, margin + 40, y); // Mover el texto más a la izquierda
+        y += 15;
+    });
+
+    // Guardar el PDF
+    const fileName = `${currentEmergency.titulo.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
+    doc.save(fileName);
+
+    showNotification('PDF generado y descargado', 'success');
 }
 
 // Compartir

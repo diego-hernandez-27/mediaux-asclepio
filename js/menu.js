@@ -354,22 +354,43 @@ function downloadEmergency(itemId) {
 
 // Función para alternar favorito
 function toggleFavorite(itemId) {
-    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    const favoriteIcon = document.getElementById(`favorite-${itemId}`);
-    
-    if (favorites.includes(itemId)) {
-        // Remover de favoritos
-        favorites = favorites.filter(id => id !== itemId);
-        favoriteIcon.textContent = '🤍';
-        showNotification('Removido de favoritos', 'success');
-    } else {
-        // Agregar a favoritos
-        favorites.push(itemId);
-        favoriteIcon.textContent = '❤️';
-        showNotification('Agregado a favoritos', 'success');
+    try {
+        // Obtener favoritos existentes
+        let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+        const favoriteIcon = document.getElementById(`favorite-${itemId}`);
+        
+        // Animación visual
+        favoriteIcon.style.transition = 'all 0.3s ease';
+        favoriteIcon.style.transform = 'scale(1.2)';
+        
+        // Simular carga
+        setTimeout(() => {
+            if (favorites.includes(itemId)) {
+                // Remover de favoritos
+                favorites = favorites.filter(id => id !== itemId);
+                favoriteIcon.textContent = '🤍';
+                favoriteIcon.style.color = '#666';
+                showNotification('Removido de favoritos', 'success');
+            } else {
+                // Agregar a favoritos
+                favorites.push(itemId);
+                favoriteIcon.textContent = '❤️';
+                favoriteIcon.style.color = '#ff0000';
+                showNotification('Agregado a favoritos', 'success');
+            }
+            
+            // Restaurar transformación
+            setTimeout(() => {
+                favoriteIcon.style.transform = 'scale(1)';
+            }, 300);
+            
+            // Guardar cambios
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }, 500);
+    } catch (error) {
+        console.error('Error al manejar favorito:', error);
+        showNotification('Error al procesar favorito', 'error');
     }
-    
-    localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
 // Función para navegar al detalle de emergencia

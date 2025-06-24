@@ -1,6 +1,6 @@
 const monster = document.getElementById('monster');
-const inputUsuario = document.getElementById('input-usuario');
-const inputClave = document.getElementById('input-clave');
+const inputUsuario = document.getElementById('usuario_o_correo');
+const inputClave = document.getElementById('contrasena');
 const body = document.querySelector('body');
 const anchoMitad = window.innerWidth / 2;
 const altoMitad = window.innerHeight / 2;

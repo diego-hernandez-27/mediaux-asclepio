@@ -14,16 +14,75 @@ if (!isset($_SESSION['usuario'])) {
     <title>Asclepio - Menú Principal</title>
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/emergencia.css">
+    <link rel="stylesheet" href="css/logos.css">
+    <style>
+        #map-section {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .map-header {
+            margin-bottom: 20px;
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .map-header h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .map-header p {
+            color: #6c757d;
+        }
+        .map-container {
+            width: 100%;
+            height: 450px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .map-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .map-action-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .map-action-btn:hover {
+            background: #0056b3;
+        }
+        .map-action-btn i {
+            font-size: 16px;
+        }
+    </style>
+    <!-- Bibliotecas para PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/pdf-generator.js"></script>
 </head>
 <body>
     <div class="header">
         <div class="logo-title">
-            <img src="img/logo.png" alt="Logo Asclepio" class="logo">
             <h1>ASCLEPIO</h1>
+            <div class="logo-container">
+                <img src="img/serpiente 2.png" alt="Logo Asclepio" class="logo">
+                <img src="img/mediaux.png" alt="Logo Mediaux" class="logo mediaux-logo">
+            </div>
         </div>
         <div class="user-profile">
             <span class="username"><?= htmlspecialchars($_SESSION['usuario']) ?></span>
-            <img src="https://i.imgur.com/4ZQeZsK.png" alt="Profile" class="profile-pic">
+            <img src="./img/perfil/perfil.jpeg" alt="Profile" class="profile-pic">
         </div>
     </div>
 
@@ -80,9 +139,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('precauciones')">
-                                <span id="favorite-rcp">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -115,9 +174,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('atragantamiento')">
-                                <span id="favorite-rcp">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -150,9 +209,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('rcp')">
-                                <span id="favorite-rcp">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -185,9 +244,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('asfixia')">
-                                <span id="favorite-ahogamiento">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -220,9 +279,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('ataque-cardiaco')">
-                                <span id="favorite-ataque-cardiaco">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -255,9 +314,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('dea')">
-                                <span id="favorite-ataque-cardiaco">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -290,9 +349,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('hemorragia')">
-                                <span id="favorite-hemorragia">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -325,9 +384,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('derrame_cerebral')">
-                                <span id="favorite-hemorragia">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -360,9 +419,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('convulsiones')">
-                                <span id="favorite-quemaduras">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -395,9 +454,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('shock')">
-                                <span id="favorite-quemaduras">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -430,9 +489,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('fracturas')">
-                                <span id="favorite-fracturas">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -465,9 +524,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('quemaduras')">
-                                <span id="favorite-quemaduras">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -500,9 +559,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('intoxicaciones')">
-                                <span id="favorite-quemaduras">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -535,9 +594,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('alergias_graves')">
-                                <span id="favorite-quemaduras">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -570,9 +629,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('heimlich')">
-                                <span id="favorite-quemaduras">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -605,9 +664,9 @@ if (!isset($_SESSION['usuario'])) {
                                 <span>⬇️</span>
                                 Descargar
                             </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('ahogamiento')">
-                                <span id="favorite-ahogamiento">🤍</span>
-                                Favorito
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(this)">
+                                <span>🤍</span>
+                                Agregar a favoritos
                             </button>
                         </div>
                         <div class="more-options">
@@ -626,17 +685,22 @@ if (!isset($_SESSION['usuario'])) {
     </div>
 
     <!-- Sección del mapa (inicialmente oculta) -->
-    <div id="map-section" class="map-section" style="display: none;">
-        <img src="img/mapa.png" alt="Mapa de hospitales">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7522.48882518072!2d-99.13258056190091!3d19.48811765043592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdff8c00000000%3A0x1b5b45a44293f318!2sHospital%20Angeles%20Lindavista!5e0!3m2!1ses-419!2smx!4v1749667652056!5m2!1ses-419!2smx" 
-            width="600" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+    <div id="map-section" style="display: none;">
+        <div class="map-header">
+            <h2>🗺️ Mapa de Hospitales</h2>
+            <p>Ubicación de hospitales y servicios médicos cercanos</p>
+        </div>
+        <div class="map-container" style="margin: 0 auto;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15044.750715937658!2d-99.13371663359224!3d19.490559635010356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1shospital%20lindavista!5e0!3m2!1ses-419!2smx!4v1750780016311!5m2!1ses-419!2smx"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
     </div>
 
     <!-- Sección de Historial (inicialmente oculta) -->
@@ -700,76 +764,8 @@ if (!isset($_SESSION['usuario'])) {
                 <p>Contenido guardado en tus favoritos</p>
             </div>
             
-            <div class="emergency-grid">
-                <!-- Tarjeta 1: RCP (Favorito) -->
-                <div class="emergency-card" onclick="openEmergencyDetail('rcp')" style="cursor: pointer;">
-                    <div class="card-image">
-                        <img src="https://img.icons8.com/color/96/heart-with-pulse.png" alt="RCP">
-                        <div class="emergency-badge">CRÍTICO</div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Reanimación Cardiopulmonar (RCP)</h3>
-                        <p class="description">Técnica de emergencia para salvar vidas cuando alguien ha dejado de respirar o su corazón ha dejado de latir.</p>
-                        <div class="card-stats">
-                            <span class="stat">⏱️ 2-3 min</span>
-                            <span class="stat">📱 Fácil</span>
-                        </div>
-                    </div>
-                    <div class="card-actions" onclick="event.stopPropagation();">
-                        <div class="action-buttons">
-                            <button class="action-btn download-btn" onclick="downloadEmergency('rcp')">
-                                <span>⬇️</span>
-                                Descargar
-                            </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('rcp')">
-                                <span id="favorite-rcp">❤️</span>
-                                Favorito
-                            </button>
-                        </div>
-                        <div class="more-options">
-                            <button class="more-btn" onclick="showMoreOptions('rcp-fav')">⋯</button>
-                            <div class="dropdown-menu" id="dropdown-rcp-fav">
-                                <div class="dropdown-item" onclick="removeFromFavorites('rcp')">🗑️ Quitar de favoritos</div>
-                                <div class="dropdown-item" onclick="downloadEmergency('rcp')">⬇️ Descargar</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 2: Hemorragia (Favorito) -->
-                <div class="emergency-card" onclick="openEmergencyDetail('hemorragia')" style="cursor: pointer;">
-                    <div class="card-image">
-                        <img src="https://img.icons8.com/color/96/blood-drop.png" alt="Hemorragia">
-                        <div class="emergency-badge">URGENTE</div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Control de Hemorragias</h3>
-                        <p class="description">Cómo detener el sangrado excesivo aplicando presión directa y elevando la herida.</p>
-                        <div class="card-stats">
-                            <span class="stat">⏱️ 1-2 min</span>
-                            <span class="stat">📱 Fácil</span>
-                        </div>
-                    </div>
-                    <div class="card-actions" onclick="event.stopPropagation();">
-                        <div class="action-buttons">
-                            <button class="action-btn download-btn" onclick="downloadEmergency('hemorragia')">
-                                <span>⬇️</span>
-                                Descargar
-                            </button>
-                            <button class="action-btn favorite-btn" onclick="toggleFavorite('hemorragia')">
-                                <span id="favorite-hemorragia">❤️</span>
-                                Favorito
-                            </button>
-                        </div>
-                        <div class="more-options">
-                            <button class="more-btn" onclick="showMoreOptions('hemorragia-fav')">⋯</button>
-                            <div class="dropdown-menu" id="dropdown-hemorragia-fav">
-                                <div class="dropdown-item" onclick="removeFromFavorites('hemorragia')">🗑️ Quitar de favoritos</div>
-                                <div class="dropdown-item" onclick="downloadEmergency('hemorragia')">⬇️ Descargar</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="emergency-grid" id="favorites-grid">
+                <!-- La sección de favoritos está vacía al inicio -->
             </div>
         </div>
     </div>
@@ -810,5 +806,6 @@ if (!isset($_SESSION['usuario'])) {
     <script src="js/bot.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/emergency-detail.js"></script>
+    <script src="js/favorites-basic.js"></script>
 </body>
 </html> 

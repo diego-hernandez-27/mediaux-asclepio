@@ -13,16 +13,22 @@ if (!isset($_SESSION['usuario'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asclepio - Detalle de Emergencia</title>
     <link rel="stylesheet" href="css/emergency-detail.css">
+    <link rel="stylesheet" href="css/logos.css">
+    <!-- Incluir biblioteca jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="header">
         <div class="logo-title">
-            <img src="img/logo.png" alt="Logo Asclepio" class="logo">
             <h1>ASCLEPIO</h1>
+            <div class="logo-container">
+                <img src="img/serpiente 2.png" alt="Logo Asclepio" class="logo">
+                <img src="img/mediaux.png" alt="Logo Mediaux" class="logo mediaux-logo">
+            </div>
         </div>
         <div class="user-profile">
             <span class="username"><?= htmlspecialchars($_SESSION['usuario']) ?></span>
-            <img src="https://i.imgur.com/4ZQeZsK.png" alt="Profile" class="profile-pic">
+            <img src="./img/perfil/perfil.jpeg" alt="Profile" class="profile-pic">
         </div>
     </div>
 
@@ -47,8 +53,8 @@ if (!isset($_SESSION['usuario'])) {
         <div class="content-grid">
             <div class="main-content">
                 <div class="section precautions-section">
-                    <h2>🚨 Nota 🚨</h2>
-                    <div class="category-badge">Información relevante</div>
+                    <h2>🚨 Precauciones</h2>
+                    <div class="category-badge">Medidas importantes</div>
                     <p id="precautions-description" class="description-text">
                         Las emergencias médicas pueden ocurrir todos los días y en cualquier entorno. Las personas pueden lesionarse en situaciones como caídas o accidentes de vehículos a motor, o desarrollar enfermedades repentinas como ataques al corazón o derrames cerebrales.
                     </p>
@@ -116,7 +122,7 @@ if (!isset($_SESSION['usuario'])) {
     </div>
 
     <div class="corner-logo">
-        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Asclepio Logo">
+        <img src="img/serpiente 2.png" alt="Asclepio Logo">
     </div>
 
     <script src="js/emergency-detail.js"></script>
