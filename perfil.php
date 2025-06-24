@@ -4,7 +4,25 @@ if (!isset($_SESSION['usuario'])) {
     header('Location: login.php');
     exit;
 }
+
+require_once 'conexion.php';
+
+$usuario = $_SESSION['usuario'];
+
+$sql = "SELECT u.nombre, u.apellido_paterno, u.apellido_materno, u.correo, u.telefono, u.fecha_nacimiento,
+               d.calle, d.numero, d.colonia, d.ciudad, d.estado, d.codigo_postal
+        FROM usuarios u
+        LEFT JOIN direcciones d ON u.id = d.usuario_id
+        WHERE u.usuario = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("s", $usuario);
+$stmt->execute();
+$result = $stmt->get_result();
+$datos = $result->fetch_assoc();
+$stmt->close();
+$conexion->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -35,8 +53,8 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                 </div>
                 <div class="profile-info">
-                    <h2 id="user-name">Usuario</h2>
-                    <p id="user-email">usuario@email.com</p>
+                    <h2 id="user-name"><?= htmlspecialchars($datos['nombre'] . ' ' . $datos['apellido_paterno']) ?></h2>
+                    <p id="user-email"><?= htmlspecialchars($datos['correo']) ?></p>
                     <span class="status-badge">Activo</span>
                 </div>
             </div>
@@ -48,20 +66,17 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="info-grid">
                         <div class="info-item">
                             <label>Nombre completo:</label>
-                            <span id="full-name">Usuario Ejemplo</span>
+                            <span id="full-name"><?= htmlspecialchars($datos['nombre'] . ' ' . $datos['apellido_paterno'] . ' ' . $datos['apellido_materno']) ?></span>
                         </div>
                         <div class="info-item">
                             <label>Fecha de nacimiento:</label>
-                            <span id="birth-date">01/01/1990</span>
+                            <span id="birth-date"><?= htmlspecialchars($datos['fecha_nacimiento']) ?></span>
                         </div>
                         <div class="info-item">
                             <label>Teléfono:</label>
-                            <span id="phone">+52 55 1234 5678</span>
+                            <span id="phone"><?= htmlspecialchars($datos['telefono']) ?></span>
                         </div>
-                        <div class="info-item">
-                            <label>Género:</label>
-                            <span id="gender">No especificado</span>
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -71,27 +86,27 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="info-grid">
                         <div class="info-item">
                             <label>Calle:</label>
-                            <span id="street">Calle Ejemplo</span>
+                            <span id="street"><?= htmlspecialchars($datos['calle']) ?></span>
                         </div>
                         <div class="info-item">
                             <label>Número:</label>
-                            <span id="number">123</span>
+                            <span id="number"><?= htmlspecialchars($datos['numero']) ?></span>
                         </div>
                         <div class="info-item">
                             <label>Colonia:</label>
-                            <span id="colony">Colonia Ejemplo</span>
+                            <span id="colony"><?= htmlspecialchars($datos['colonia']) ?></span>
                         </div>
                         <div class="info-item">
-                            <label>Ciudad:</label>
+                            <span id="city"><?= htmlspecialchars($datos['ciudad']) ?></span>
                             <span id="city">Ciudad de México</span>
                         </div>
                         <div class="info-item">
                             <label>Estado:</label>
-                            <span id="state">CDMX</span>
+                            <span id="state"><?= htmlspecialchars($datos['estado']) ?></span>
                         </div>
                         <div class="info-item">
                             <label>Código Postal:</label>
-                            <span id="zip">12345</span>
+                            <span id="zip"><?= htmlspecialchars($datos['codigo_postal']) ?></span>
                         </div>
                     </div>
                 </div>
@@ -123,22 +138,18 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="section">
                     <h3>⚙️ Acciones</h3>
                     <div class="actions-grid">
-                        <button class="action-btn edit-btn">
+                        <a href="editar_perfil.php" class="action-btn edit-btn">
                             <span>✏️</span>
                             Editar Perfil
-                        </button>
-                        <button class="action-btn password-btn">
+                        </a>
+                        <a href="cambiar_contrasena.php" class="action-btn password-btn">
                             <span>🔒</span>
                             Cambiar Contraseña
-                        </button>
-                        <button class="action-btn preferences-btn">
-                            <span>⚙️</span>
-                            Preferencias
-                        </button>
-                        <button class="action-btn logout-btn" onclick="logout()">
+                        </a>
+                        <a href="logout.php" class="action-btn logout-btn">
                             <span>🚪</span>
                             Cerrar Sesión
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
